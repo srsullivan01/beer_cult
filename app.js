@@ -2,7 +2,9 @@ require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
+var express = require('express');
 var path = require('path');
+var hbs = require('hbs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -36,6 +38,23 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// mongoose stuff
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/beer_cult');
+
+// // Now that we're connected, let's save that connection to the database in a variable.
+// var db = mongoose.connection;
+
+// // Will log an error if db can't connect to MongoDB
+// db.on('error', function(err){
+//   console.log(err);
+// });
+
+// // Will log "database has been connected" if it successfully connects.
+// db.once('open', function() {
+//   console.log("database has been connected!");
+// });
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -47,4 +66,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// module.exports = app;
+
+
+app.listen(4000, function(){
+  console.log("app listening on port 4000");
+});
+

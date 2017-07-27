@@ -61,6 +61,24 @@ scoffLaw.save(function(error){
 	console.log('scofflaw created!');
 });
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/beer_cult');
+
+// Now that we're connected, let's save that connection to the database in a variable.
+var db = mongoose.connection;
+
+// Will log an error if db can't connect to MongoDB
+db.on('error', function(err){
+  console.log(err);
+});
+
+// Will log "database has been connected" if it successfully connects.
+db.once('open', function() {
+  console.log("database has been connected!");
+});
+
+module.exports = db;
+
 mongoose.connection.close();
 
 

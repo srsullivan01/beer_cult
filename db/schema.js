@@ -4,8 +4,6 @@ var Schema = mongoose.Schema;
 // Use native promises
 mongoose.Promise = global.Promise;
 
-
-
 var BeerSchema = new Schema ({
   name: {type: String, required: true},
   description: String,
