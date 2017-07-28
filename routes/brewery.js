@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Brewery = require('../models/brewery');
-
+var User = require('../models/user');
 var Beer = require('../models/beer');
 
 
