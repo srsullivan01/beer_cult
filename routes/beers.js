@@ -11,15 +11,18 @@ const router = express.Router({ mergeParams: true });
 // INDEX
 router.get('/', (request, response) => {
 
-    const breweryIdToFind = request.params.brewery.id;
-
-    Brewery.findById(breweryIdToFind)
+    Brewery.find({})
         .then((brewery) => {
             response.render(
                 'beer/index',
                 {
-                    brewery: brewery.name,
-                    beers: brewery.beer
+                    brewery: brewery,
+                    name: brewery.beers,
+                    description: brewery.beers,
+                    reviews: brewery.beers,
+                    rating: brewery.beers,
+                    photo: [],
+                    locations: brewery.beers
                 }
             )
         })
