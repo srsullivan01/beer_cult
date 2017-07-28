@@ -40,7 +40,7 @@ var doubleJeopardy = new Beer({
 
 var scoffLaw  = new Brewery({
 	name: "scofflaw brewering company",
-	beers: [{name: "double Jeopardy"}],
+	beers: [doubleJeopardy],
 	location: "Atlanta",
 	email: "info@scofflawbeer.com",
 	website: "scofflawbeer.com"
