@@ -66,10 +66,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// module.exports = app;
+module.exports = app;
 
 
-app.listen(4000, function(){
-  console.log("app listening on port 4000");
+app.listen(3000, function(){
+  console.log("app listening on port 3000");
 });
 
