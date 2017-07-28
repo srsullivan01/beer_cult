@@ -4,13 +4,16 @@
         <div>Name: <a href="/{{this._id}}">{{this.name}}</a></div>
         <div>Beers:
             <ul>
-                <li>Name:{{brewery.beer.name}}</li>
-                <li>Rating: {{beer.rating}}</li>
-                </ul>
+                {{#each this.beers}}
+                <li>Name: <a href="/beer">{{this.name}}</a></li>
+                {{/each}}
+            </ul>
 
 
-        <a href="/{{this._id}}">Show {{this.name}}</a>
         <a href="/{{this._id}}/delete">Delete {{this.name}}</a>
         <a href="/{{this._id}}/edit">Edit {{this.name}}</a>
     </div>
 {{/each}}
+    </div>
+        <a href="/new">Add a New Brewery</a>
+    </div>
