@@ -5,7 +5,7 @@ var Brewery = require('../models/brewery');
 var Beer = require('../models/beer');
 
 
-/* GET home page. */
+/* GET home page. INDEX */
 router.get('/', function(request, response, next) {
 
   Brewery.find({}).then((brewery) => {
@@ -15,7 +15,7 @@ router.get('/', function(request, response, next) {
         {
           brewery: brewery,
           name: brewery.name,
-          beers: brewery.Beer.name,
+          beers: brewery.Beer,
           location: brewery.location,
           email: brewery.email,
           website: brewery.website
@@ -26,5 +26,20 @@ router.get('/', function(request, response, next) {
   });
   });
 });
+//UPDTE
 
+
+//DELTE
+router.get('/:id/delete', (request, response) => {
+  const breweryIdToDelete = request.params.id;
+  Brewery.findByIdAndRemove(breweryIdToDelete).then(() => {
+    console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
+    response.redirect('/');
+  });
+});
+
+
+
+
+//EXPORT LEAVE ALONE
 module.exports = router;

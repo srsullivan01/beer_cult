@@ -9,10 +9,10 @@
                 <li>Name:{{brewery.beer.name}}</li>
                 <li>Rating: {{beer.rating}}</li>
                 </ul>
-          
-        
+
+
         <a href="/brewery/{{this._id}}">Show {{this.name}}</a>
-        <a href="/brewery/{{this._id}}/delete">Delete {{this.name}}</a>
+        <a href="/{{this._id}}/delete">Delete {{this.name}}</a>
         <a href="/brewery/{{this._id}}/edit">Edit {{this.name}}</a>
     </div>
 {{/each}}
