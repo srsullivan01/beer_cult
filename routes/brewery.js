@@ -26,7 +26,26 @@ router.get('/', function(request, response, next) {
   });
   });
 });
+//UPDATE brewery
+router.put('/:id', (request, response) => {
+  const breweryIdToUpdate = request.params.id;
+  const updatedBreweryInfo = request.body;
 
+  Brewery.findByIdAndUpdate(
+    breweryIdToUpdate,
+    updatedBreweryInfo,
+    {new: true}
+  ).then((brewery) => {
+    console.log(`brewery with ID ${brewery._id} has been updated`);
+    response.render(
+      'brewery/show',
+      {brewery},
+    );
+  }).catch((error) => {
+    console.log(`${brewery._id} failed to update`);
+    console.log(error);
+  });
+});
 //DELTE
 router.get('/:id/delete', (request, response) => {
   const breweryIdToDelete = request.params.id;
@@ -36,7 +55,8 @@ router.get('/:id/delete', (request, response) => {
   });
 });
 
-//EDIT / UPDATE
+
+//RENDER EDIT FORM
 router.get('/:id/edit', (request, response) => {
   const breweryIdToFind = request.params.id;
   Brewery.findById(breweryIdToFind).then((brewery) => {
