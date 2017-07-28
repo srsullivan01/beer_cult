@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Brewery = require('../models/brewery');
+
 var Beer = require('../models/beer');
 
 
@@ -53,6 +54,28 @@ router.get('/:id/delete', (request, response) => {
     console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
     response.redirect('/');
   });
+
+
+//this is the create new form 
+router.get('/new', (request, response) => {
+	response.render('brewery/new');
+});
+
+// Brewery show route
+router.get('/:id', function(request, response, next) {
+
+    var breweryToSearchFor = request.params.id;
+
+    Brewery.findById(breweryToSearchFor)
+        .then((brewery) => {
+            response.render(
+                'brewery/show',
+                { brewery }
+            );
+        })
+        .catch((error) => {
+            console.log(`Error retrieving brewery with ID of ${breweryToSearchFor}`)
+        });
 });
 
 
