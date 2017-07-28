@@ -26,8 +26,6 @@ router.get('/', function(request, response, next) {
   });
   });
 });
-//UPDTE
-
 
 //DELTE
 router.get('/:id/delete', (request, response) => {
@@ -35,6 +33,19 @@ router.get('/:id/delete', (request, response) => {
   Brewery.findByIdAndRemove(breweryIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
     response.redirect('/');
+  });
+});
+
+//EDIT / UPDATE
+router.get('/:id/edit', (request, response) => {
+  const breweryIdToFind = request.params.id;
+  Brewery.findById(breweryIdToFind).then((brewery) => {
+    response.render(
+      'brewery/edit',
+      {brewery},
+    );
+  }).catch((error) => {
+    console.log(`error updating ${breweryIdToFind}`);
   });
 });
 
