@@ -1,9 +1,7 @@
 <h1>Beer Cult</h1>
 {{#each brewery}}
     <div>
-        <div>Name: {{this.name}}</div>
-        <div>Email: {{this.email}}</div>
-        <div>Website: {{this.website}}</div>
+        <div>Name: <a href="/{{this._id}}">{{this.name}}</a></div>
         <div>Beers:
             <ul>
                 <li>Name:{{brewery.beer.name}}</li>
