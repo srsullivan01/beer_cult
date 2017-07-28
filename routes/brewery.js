@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Brewery = require('../models/brewery');
-
+var User = require('../models/user');
 var Beer = require('../models/beer');
 
 
@@ -47,16 +47,17 @@ router.put('/:id', (request, response) => {
     console.log(error);
   });
 });
-//DELTE
+
+//DELETE
 router.get('/:id/delete', (request, response) => {
   const breweryIdToDelete = request.params.id;
   Brewery.findByIdAndRemove(breweryIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
     response.redirect('/');
   });
+});
 
-
-//this is the create new form 
+//this is the create new form
 router.get('/new', (request, response) => {
 	response.render('brewery/new');
 });
