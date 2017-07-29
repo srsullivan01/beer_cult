@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var brewery = require('./routes/brewery');
-// var users = require('./routes/users');
+var users = require('./routes/users');
 var beers = require('./routes/beers');
 
 
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/brewery/:breweryId/beers/', beers);
 app.use('/brewery', brewery);
-// app.use('/users', users);
+app.use('/users', users);
 
 
 // catch 404 and forward to error handler
