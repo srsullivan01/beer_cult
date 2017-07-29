@@ -31,9 +31,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.use('/users', users);
 app.use('/brewery/:breweryId/beers/', beers);
 app.use('/brewery', brewery);
-app.use('/users', users);
 
 
 // catch 404 and forward to error handler

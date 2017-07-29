@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+var Brewery = require("../models/brewery");
 var User = require("../models/user");
 var Beer = require("../models/beer");
 
 /* GET home page. INDEX */
-router.get('/user/', function(request, response, next) {
-
+router.get('/', function(request, response, next) {
   User.find({}).then((user) => {
     response.render(
         'user/index',
@@ -24,12 +24,12 @@ router.get('/user/', function(request, response, next) {
     ) .catch((error) => {
     console.log('Error retrieving user from database!');
     console.log(error);
-  });
+    });
   });
 });
 
 //UPDATE user
-router.put('/user/:id', (request, response) => {
+router.put('/:id', (request, response) => {
   const userIdToUpdate = request.params.id;
   const updatedUserInfo = request.body;
 
@@ -50,7 +50,7 @@ router.put('/user/:id', (request, response) => {
 });
 
 //DELETE
-router.get('/user/:id/delete', (request, response) => {
+router.get('/:id/delete', (request, response) => {
   const userIdToDelete = request.params.id;
   User.findByIdAndRemove(userIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${userIdToDelete} is gone`);
@@ -64,7 +64,7 @@ router.get('/new', (request, response) => {
 });
 
 // user show route
-router.get('/user/:id', function(request, response, next) {
+router.get('/:id', function(request, response, next) {
 
     var userToSearchFor = request.params.id;
 
@@ -82,7 +82,7 @@ router.get('/user/:id', function(request, response, next) {
 
 
 //RENDER EDIT FORM
-router.get('/user/:id/edit', (request, response) => {
+router.get('/:id/edit', (request, response) => {
   const userIdToFind = request.params.id;
   User.findById(userIdToFind).then((user) => {
     response.render(
