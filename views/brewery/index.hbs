@@ -2,13 +2,7 @@
 {{#each brewery}}
     <div>
         <div>Name: <a href="/brewery/{{this._id}}">{{this.name}}</a></div>
-        <div>Beers:
-            <ul>
-                {{#each this.beers}}
-                <li>Name: <a href="/brewery/{{this._id}}/beers">{{this.name}}</a></li>
-                {{/each}}
-            </ul>
-
+        <div><a href="/brewery/{{this._id}}/beers">Beers</a>
 
         <a href="/brewery/{{this._id}}/delete">Delete {{this.name}}</a>
         <a href="/brewery/{{this._id}}/edit">Edit {{this.name}}</a>

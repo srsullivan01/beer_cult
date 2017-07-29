@@ -69,7 +69,7 @@ router.post('/', (request, response) => {
 });
 
 // SHOW
-router.get('/:beerId', (request, response) => {
+router.get('/:id', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
 
