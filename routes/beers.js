@@ -10,19 +10,23 @@ const router = express.Router({ mergeParams: true });
 
 // INDEX
 router.get('/', (request, response) => {
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
 
     Brewery.find({})
         .then((brewery) => {
             response.render(
                 'beer/index',
                 {
+                    breweryId,
+                    beerId,
                     brewery: brewery,
                     name: brewery.beers,
                     description: brewery.beers,
                     reviews: brewery.beers,
                     rating: brewery.beers,
                     photo: [],
-                    locations: brewery.beers
+                    locations: brewery.beers                
                 }
             )
         })
@@ -41,57 +45,53 @@ router.get('/new', (request, response) => {
 
 // CREATE ROUTE
 router.post('/', (request, response) => {
-  const breweryId = request.params.breweryId;
-  const newBeerInfo = request.body;
+    const newBeerInfoFromForm = request.body;
+    const breweryId = request.params.breweryId;
 
-  Brewery.findById(breweryId).then((brewery) => {
-    const newBeer = new Beer(newBeerInfo);
-
-    brewery.beers.push(newBeer);
-
-    return brewery.save();
-
-  }).then((brewery) => {
-    console.log(`Saved new user with ID of ${brewery._id}`);
-
+  Beer.create(newBeerInfoFromForm).then((beer) => {
     response.render(
         'beer/show',
         {
-          breweryId,
-          breweryName: brewery.name,
-          beerId: newBeer._id,
-          beerName: newBeer.name,
+                breweryId,
+                name: beer.name,
+                description: beer.description,
+                reviews: beer.reviews,
+                rating: beer.rating,
+                photo: beer.photo
         },
     );
   }).catch((error) => {
+    console.log('Error saving new user to database!');
     console.log(error);
   });
 });
 
 // SHOW
-router.get('/:id', (request, response) => {
+router.get('/:beerId', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
 
-    Brewery.findById(breweryId)
-        .then((brewery) => {
+    Beer.findById(beerId)
+        .then((beer) => {
 
-            const foundBeer = brewery.beer.find((beer) => {
-                return beer.id === beerId
-            });
+            // const foundBeer = beer.find((beer) => {
+            //     return beer.id === beerId
+            // });
 
             response.render(
                 'beer/show',
                 {
                     breweryId,
-                    breweryName: brewery.name,
-                    beerId: foundBeer._id,
-                    beerName: foundBeer.name
+                    name: beer.name,
+                    description: beer.description,
+                    reviews: beer.reviews,
+                    rating: beer.rating,
+                    photo: beer.photo
                 }
             )
         })
         .catch((error) => {
-            console.log("Failed to find brewery");
+            console.log("Failed to find" + error);
         })
 });
 
