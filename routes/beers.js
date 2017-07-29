@@ -29,79 +29,71 @@ router.get('/', (request, response) => {
 });
 
 // RENDER THE NEW FORM
-// router.get('beer/new', (request, response) => {
+router.get('/new', (request, response) => {
 
-//     const userId = request.params.userId;
+    const breweryId = request.params.breweryId;
 
-//     response.render(
-//         'items/new',
-//         { userId }
-//     );
-// });
+    response.render(
+        'beer/new',
+        { breweryId }
+    );
+});
 
-// router.post('/beer', (request, response) => {
-//     const userId = request.params.userId;
-//     const newItemInfo = request.body;
+// CREATE ROUTE
+router.post('/', (request, response) => {
+  const breweryId = request.params.breweryId;
+  const newBeerInfo = request.body;
 
-    
+  Brewery.findById(breweryId).then((brewery) => {
+    const newBeer = new Beer(newBeerInfo);
 
-//     User.findById(userId)
-//         .then((user) => {
-//             const newItem = new Item(newItemInfo);  
-//             console.log('yooooooooo' + newItem);
-            
-//             user.items.push(newItem);
+    brewery.beers.push(newBeer);
 
-//             user.save()
-//                 .then((user) => {
-//                     console.log("Saved new user with ID of " + user._id);
+    return brewery.save();
 
-//                     response.render(
-//                         'items/show',
-//                         {
-//                             userId,
-//                             userName: user.first_name,
-//                             itemId: newItem._id,
-//                             itemName: newItem.name
-//                         }
-//                     )
-//                 })
-//                 .catch((error) => {
-//                     console.log(error);
-//                 })
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
+  }).then((brewery) => {
+    console.log(`Saved new user with ID of ${brewery._id}`);
 
-// });
+    response.render(
+        'beer/show',
+        {
+          breweryId,
+          breweryName: brewery.name,
+          beerId: newBeer._id,
+          beerName: newBeer.name,
+        },
+    );
+  }).catch((error) => {
+    console.log(error);
+  });
+});
 
-// // SHOW
-// router.get('/:beerId', (request, response) => {
-//     const breweryId = request.params.breweryId;
-//     const beerId = request.params.beerId;
+// SHOW
+router.get('/:beerId', (request, response) => {
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
 
-//     Brewery.findById(breweryId)
-//         .then((brewery) => {
+    Brewery.findById(breweryId)
+        .then((brewery) => {
 
-//             const foundBeer = brewery.beer.find((beer) => {
-//                 return beer.id === beerId
-//             });
+            const foundBeer = brewery.beer.find((beer) => {
+                return beer.id === beerId
+            });
 
-//             response.render(
-//                 'beer/show',
-//                 {
-//                     breweryId,
-//                     breweryName: brewery.name,
-//                     beerId: foundBeer._id,
-//                     beerName: foundBeer.name
-//                 }
-//             )
-//         })
-//         .catch((error) => {
-//             console.log("Failed to find brewery");
-//         })
-// });
+            response.render(
+                'beer/show',
+                {
+                    breweryId,
+                    breweryName: brewery.name,
+                    beerId: foundBeer._id,
+                    beerName: foundBeer.name
+                }
+            )
+        })
+        .catch((error) => {
+            console.log("Failed to find brewery");
+        })
+});
 
 // // RENDER THE EDIT FORM
 // router.get('/:beerId/edit', (request, response) => {

@@ -7,7 +7,7 @@ var Beer = require('../models/beer');
 
 
 /* GET home page. INDEX */
-router.get('/brewery', function(request, response, next) {
+router.get('/', function(request, response, next) {
 
   Brewery.find({}).then((brewery) => {
     console.log(brewery.beer);
@@ -29,13 +29,13 @@ router.get('/brewery', function(request, response, next) {
 });
 
 //this is the create new form 
-router.get('/brewery/new', (request, response) => {
+router.get('/new', (request, response) => {
 	response.render('brewery/new');
 });
 
 // create route
 
-router.post('/brewery', (request, response) => {
+router.post('/', (request, response) => {
 
   const newBreweryInfoFromForm = request.body;
 
@@ -51,7 +51,7 @@ router.post('/brewery', (request, response) => {
 });
 
 // Brewery show route
-router.get('/brewery/:id', function(request, response, next) {
+router.get('/:id', function(request, response, next) {
 
     var breweryToSearchFor = request.params.id;
 
@@ -68,7 +68,7 @@ router.get('/brewery/:id', function(request, response, next) {
 });
 
 //UPDATE brewery
-router.put('/brewery/:id', (request, response) => {
+router.put('/:id', (request, response) => {
   const breweryIdToUpdate = request.params.id;
   const updatedBreweryInfo = request.body;
 
@@ -89,16 +89,16 @@ router.put('/brewery/:id', (request, response) => {
 });
 
 //DELETE
-router.get('/brewery/:id/delete', (request, response) => {
+router.get('/:id/delete', (request, response) => {
   const breweryIdToDelete = request.params.id;
   Brewery.findByIdAndRemove(breweryIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
-    response.redirect('/');
+    response.redirect('/brewery');
   });
 });
 
 //RENDER EDIT FORM
-router.get('/brewery/:id/edit', (request, response) => {
+router.get('/:id/edit', (request, response) => {
   const breweryIdToFind = request.params.id;
   Brewery.findById(breweryIdToFind).then((brewery) => {
     response.render(

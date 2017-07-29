@@ -1,4 +1,8 @@
-<form action="/users/{{userId}}/beer" method="POST">
+<form action="/brewery/{{breweryId}}/beers" method="POST">
     <input type="text" placeholder="beer name" name="name">
     <input type="submit" value="Create Beer">
 </form>
+
+<div><a href="/brewery">Back to Brewery Main Page</a></div>
+
+<div><a href="/brewery/{{breweryId}}/beers">Back to Beer Page</a></div>

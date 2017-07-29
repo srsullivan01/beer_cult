@@ -30,9 +30,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', brewery);
+
+app.use('/brewery/:breweryId/beers/', beers);
+app.use('/brewery', brewery);
 // app.use('/users', users);
-app.use('/beers', beers);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
