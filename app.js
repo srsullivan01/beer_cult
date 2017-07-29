@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/users', users);
-app.use('/brewery/:breweryId/beers/', beers);
+app.use('/brewery/:breweryId/beer/', beers);
 app.use('/brewery', brewery);
 
 

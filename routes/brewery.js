@@ -9,11 +9,16 @@ var Beer = require('../models/beer');
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
 
+  const beerId = request.params.beerId;
+  const breweryId = request.params.breweryId;
+
   Brewery.find({}).then((brewery) => {
     console.log(brewery.beer);
     response.render(
         'brewery/index',
         {
+          breweryId,
+          beerId,
           brewery: brewery,
           name: brewery.name,
           beers: brewery.beers,
@@ -51,9 +56,9 @@ router.post('/', (request, response) => {
 });
 
 // Brewery show route
-router.get('/:id', function(request, response, next) {
+router.get('/:breweryId', function(request, response, next) {
 
-    var breweryToSearchFor = request.params.id;
+    var breweryToSearchFor = request.params.breweryId;
 
     Brewery.findById(breweryToSearchFor)
         .then((brewery) => {
@@ -68,8 +73,8 @@ router.get('/:id', function(request, response, next) {
 });
 
 //UPDATE brewery
-router.put('/:id', (request, response) => {
-  const breweryIdToUpdate = request.params.id;
+router.put('/:breweryId', (request, response) => {
+  const breweryIdToUpdate = request.params.breweryId;
   const updatedBreweryInfo = request.body;
 
   Brewery.findByIdAndUpdate(
@@ -89,8 +94,8 @@ router.put('/:id', (request, response) => {
 });
 
 //DELETE
-router.get('/:id/delete', (request, response) => {
-  const breweryIdToDelete = request.params.id;
+router.get('/:breweryId/delete', (request, response) => {
+  const breweryIdToDelete = request.params.breweryId;
   Brewery.findByIdAndRemove(breweryIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${breweryIdToDelete} is gone`);
     response.redirect('/brewery');
@@ -98,8 +103,8 @@ router.get('/:id/delete', (request, response) => {
 });
 
 //RENDER EDIT FORM
-router.get('/:id/edit', (request, response) => {
-  const breweryIdToFind = request.params.id;
+router.get('/:breweryId/edit', (request, response) => {
+  const breweryIdToFind = request.params.breweryId;
   Brewery.findById(breweryIdToFind).then((brewery) => {
     response.render(
       'brewery/edit',

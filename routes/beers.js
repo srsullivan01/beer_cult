@@ -74,14 +74,11 @@ router.get('/:beerId', (request, response) => {
     Beer.findById(beerId)
         .then((beer) => {
 
-            // const foundBeer = beer.find((beer) => {
-            //     return beer.id === beerId
-            // });
-
             response.render(
                 'beer/show',
                 {
                     breweryId,
+                    beerId,
                     name: beer.name,
                     description: beer.description,
                     reviews: beer.reviews,
