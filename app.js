@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use('/', welcome);
 app.use('/users', users);
 app.use('/brewery/:breweryId/beer/', beers);
 app.use('/brewery', brewery);
@@ -44,21 +44,21 @@ app.use(function(req, res, next) {
 });
 
 // mongoose stuff
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/beer_cult');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/beer_cult');
 
 // // Now that we're connected, let's save that connection to the database in a variable.
-// var db = mongoose.connection;
+var db = mongoose.connection;
 
 // // Will log an error if db can't connect to MongoDB
-// db.on('error', function(err){
-//   console.log(err);
-// });
+db.on('error', function(err){
+  console.log(err);
+});
 
 // // Will log "database has been connected" if it successfully connects.
-// db.once('open', function() {
-//   console.log("database has been connected!");
-// });
+db.once('open', function() {
+  console.log("database has been connected!");
+});
 
 // error handler
 app.use(function(err, req, res, next) {
