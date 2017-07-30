@@ -50,7 +50,7 @@ router.post('/', (request, response) => {
         {brewery},
     );
   }).catch((error) => {
-    console.log('Error saving new user to database!');
+    console.log('Error saving new brewery to database!');
     console.log(error);
   });
 });
