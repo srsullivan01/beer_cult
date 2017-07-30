@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router({mergeParams: true});
 
 var Brewery = require('../models/brewery');
 var User = require('../models/user');
@@ -12,12 +12,14 @@ router.get('/', function(request, response, next) {
   const beerId = request.params.beerId;
   const breweryId = request.params.breweryId;
 
-  Brewery.find({}).then((brewery) => {
-    console.log(brewery.beer);
-    response.render(
+  Brewery.find({breweryId})
+    .then((brewery) => {
+      var arrayOfBeers = brewery.beers;
+        response.render(
         'brewery/index',
         {
-          breweryId,
+          arrayOfBeers,
+          breweryId: breweryId,
           beerId,
           brewery: brewery,
           name: brewery.name,

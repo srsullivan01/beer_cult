@@ -1,13 +1,17 @@
 <h1>Beer Cult</h1>
 {{#each brewery}}
     <div>
-        <div>Name: <a href="/brewery/{{this._id}}">{{this.name}}</a></div>
-    {{#each this.beers}}
-        <div>Name: <a href="/brewery/{{brewery.id}}/beers/{{this._id}}">{{this.name}}</a></div>
+        <div><a href="/brewery/{{this._id}}">{{this.name}}</a></div>
+    </div>
+    <div>
+     {{#each this.beers}} 
+        <div>Name: <a href="/brewery/{{brewery._id}}/beer/{{this._id}}">{{this.name}}</a></div>
+         <div><a href="/brewery/{{breweryId}}/beer/delete">Delete Beer</a></div> 
 
-    {{/each}}
+     {{/each}} 
         <a href="/brewery/{{this._id}}/delete">Delete {{this.name}}</a>
         <a href="/brewery/{{this._id}}/edit">Edit {{this.name}}</a>
+        <a href="/brewery/{{this._id}}/beer/{{beerId}}/new">Add New Beer</a>
     </div>
 {{/each}}
     </div>

@@ -2,7 +2,7 @@ const express = require('express');
 
 const Brewery = require('../models/brewery');
 const Beer = require('../models/beer');
-// const User = require('../models/user')
+const User = require('../models/user')
 
 const router = express.Router({ mergeParams: true });
 
