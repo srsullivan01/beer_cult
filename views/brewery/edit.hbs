@@ -1,9 +1,12 @@
 <h1>Edit Brewery</h1>
 
-<form action="/{{brewery.id}}?_method=PUT" method="POST">
+<form action="/brewery/{{this._id}}?_method=PUT" method="POST">
     <input type="text" name="name" placeholder="name" value="{{brewery.name}}">
       <input type="email" placeholder="email" name="email" value="{{brewery.email}}" required >
       <input type="text" placeholder="website" name="website" value="{{brewery.website}}">
       <input type="text" placeholder="location" name="location" value="{{brewery.location}}">
     <input type="submit" value="Update Brewery">
 </form>
+
+<div><a href="/brewery">Back to Main Page</a></div>
+

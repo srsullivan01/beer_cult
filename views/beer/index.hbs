@@ -1,20 +1,19 @@
 <h1>Beers</h1>
 
-{{#each brewery}}
+ {{#each brewery}} 
 
-{{#each this.beers}}
-    <div>Name: {{this.name}}</div>
-    <div>Description: {{this.description}}</div>
-    <div>Reviews: {{this.reviews}}</div>
-    <div>Rating: {{this.rating}}</div>
-    <div>Photo: {{this.photo}}</div>
-    <div>Location: {{this.location}}</div>
+    {{#each this.beers}}
 
-
+         <div>Name: <a href="/brewery/{{breweryId}}/beer/{{this._id}}">{{this.name}}</a></div>
 
     
-     <a href="/users/{{../userId}}/beer/{{this._id}}">Show Item</a>
     <a href="/users/{{../userId}}/beer/{{this._id}}/delete">Delete Item</a> 
-{{/each}}
 
-{{/each}}
+
+
+    {{/each}}
+
+ {{/each}} 
+
+    <a href="/brewery/{{breweryId}}/beer/new">Add New Beer</a>
+    <a href="/brewery">Back to Main Brewery Page</a>
