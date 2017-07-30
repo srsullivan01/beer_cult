@@ -11,6 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
+var welcome = require('./routes/welcome');
 var brewery = require('./routes/brewery');
 var users = require('./routes/users');
 var beers = require('./routes/beers');
