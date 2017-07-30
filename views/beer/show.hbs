@@ -1,9 +1,12 @@
+{{#each arrayOfBeers}}
  <h1>{{name}}</h1> 
 
 <div>Description: {{description}}</div>
 <div>Reviews: {{reviews}}</div>
 <div>Rating: {{rating}}</div>
 <div>{{photo}}</div>
+
+{{/each}}
 
 
 <div><a href="/brewery/{{breweryId}}/beer">Back to Beer Page</a></div>

@@ -75,17 +75,19 @@ router.get('/:beerId', (request, response) => {
 
     Brewery.findById(breweryId)
         .then((brewery) => {
+            var arrayOfBeers = brewery.beers;
 
             response.render(
                 'beer/show',
                 {
+                    arrayOfBeers,
                     breweryId,
                     beerId,
-                    name: beer.name,
-                    description: beer.description,
-                    reviews: beer.reviews,
-                    rating: beer.rating,
-                    photo: beer.photo
+                    name: brewery.beers.name,
+                    description: brewery.beers.description,
+                    reviews: brewery.beers.reviews,
+                    rating: brewery.beers.rating,
+                    photo: brewery.beers.photo
                 }
             )
         })
