@@ -1,13 +1,11 @@
 <h1>User Page</h1>
 {{#each user}}
     <div>
+        <div>{{this.photo}}</div>
          <div>Name: <a href="/user/{{this._id}}"></a>{{this.username}}</div> 
          <div><a href="/user/{{this._id}}/bio"></a>Bio: {{this.bio}}</div> 
          <div>{{this.username}}'s <a href="/user/{{this._id}}/beers">Beers</a></div> 
-         <a href="/user/{{this._id}}/delete">Delete User</a> 
-         <a href="/user/{{this._id}}/edit">Edit User</a> 
+         <a href="/user/{{this._id}}/delete">Delete {{this.username}}</a> 
+         <a href="/user/{{this._id}}/edit">Edit {{this.username}}</a> 
     </div>
 {{/each}}
-    </div>
-        <a href="/user/new">Add a New User</a>
-    </div>
