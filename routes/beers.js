@@ -73,8 +73,8 @@ router.get('/:beerId', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
 
-    Beer.findById(beerId)
-        .then((beer) => {
+    Brewery.findById(breweryId)
+        .then((brewery) => {
 
             response.render(
                 'beer/show',
@@ -94,51 +94,65 @@ router.get('/:beerId', (request, response) => {
         })
 });
 
-
-// UPDATE AN ITEM
-router.put('/:beerId', (request, response) => {
+// RENDER THE EDIT FORM
+router.get('/:beerId/edit', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
 
-    console.log('hello');
-
     Brewery.findById(breweryId)
         .then((brewery) => {
+            arrayOfBeers = brewery.beers;
+
             const foundBeer = brewery.beers.find((beer) => {
                 return beer.id === beerId;
             })
 
-            foundBeer.name = request.body.name;
+            response.render('beer/edit', {
+                breweryId,
+                beerId,
+                beer: foundBeer
+            });
+        })
+});
 
-            brewery.save()
-                .then((brewery) => {
+// UPDATE AN ITEM
+router.put('/:beerId', (request, response) => {
+    console.log("You hit the update route");
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
+    console.log(request.body.name);
+
+    Brewery.findById(breweryId)
+        .then((brewery) => {
+            
+            const foundBeer = brewery.beers.find((beer) => {
+                return beer.id === beerId;
+            })
+            arrayOfBeers = brewery.beers;
+            
+            foundBeer.name = request.body.name;
+            return brewery.save();
+
+                }).then((brewery) => {
                     console.log("updated user with ID of " + brewery._id)
 
                     response.render(
                         'beer/index',
                         {
-                            breweryId: brewery._id,
-                            brewery: brewery,
+                            breweryId,
+                            brewery,
                             breweryName: brewery.name,
                             beer: brewery.beers,
                             name: brewery.beers,
+                            arrayOfBeers
 
                         }
                     )
                 })
-        })
 
 });
 
 // DELETE 
-// router.get('/:beerId/delete', (request, response) => {
-//   const beerIdToDelete = request.params.beerId;
-//   Beer.findByIdAndRemove(beerIdToDelete).then(() => {
-//     console.log(`You have been visited by the demon of delete, ${beerIdToDelete} is gone`);
-//     response.redirect('beer/index');
-//   });
-// });
-
 
 router.get('/:beerId/delete', (request, response) => {
     const breweryId = request.params.breweryId;
@@ -170,51 +184,9 @@ router.get('/:beerId/delete', (request, response) => {
             )
         })
 
-            // const beerToDelete = brewery.beers.find((beer) => {
-            //     return beer.id === beerId;
-            // })
-            // const indexToDelete = brewery.beers.indexOf(beerToDelete);
-
-            // brewery.beers.splice(indexToDelete, 1);
-
-            // brewery.save().then((brewery) => {
-            //     console.log("Successfully deleted item with ID of " + itemId + " from user");
-
-                // response.render(
-                //     'beer/index',
-                //     {
-                //     breweryId,
-                //     beerId,
-                //     brewery: brewery,
-                //     name: brewery.beers,
-                //     description: brewery.beers,
-                //     reviews: brewery.beers,
-                //     rating: brewery.beers,
-                //     photo: [],
-                //     locations: brewery.beers
-                //     }
-                // )
-
 });
 
-// RENDER THE EDIT FORM
-router.get('/:beerId/edit', (request, response) => {
-    const breweryId = request.params.breweryId;
-    const beerId = request.params.beerId;
 
-    Brewery.findById(breweryId)
-        .then((brewery) => {
-            const foundBeer = brewery.beers.find((beer) => {
-                return beer.id === beerId;
-            })
-
-            response.render('beer/edit', {
-                breweryId,
-                beerId,
-                beer: foundBeer
-            });
-        })
-});
 
 
 module.exports = router;
