@@ -47,25 +47,16 @@ router.get('/new', (request, response) => {
 
 // CREATE ROUTE
 router.post('/', (request, response) => {
-    const newBeerInfoFromForm = request.body;
-    const breweryId = request.params.breweryId;
+  const breweryId = request.params.breweryId;
+  const newBeerInfo = request.body;
 
-  Beer.create(newBeerInfoFromForm).then((beer) => {
-    response.render(
-        'beer/show',
-        {
-                breweryId,
-                name: beer.name,
-                description: beer.description,
-                reviews: beer.reviews,
-                rating: beer.rating,
-                photo: beer.photo
-        },
-    );
-  }).catch((error) => {
-    console.log('Error saving new user to database!');
-    console.log(error);
-  });
+  Brewery.findById(breweryId).then((brewery) => {
+      const newBeer = new Beer(newBeerInfo);
+      brewery.beers.push(newBeer);
+      return brewery.save();
+  }).then((brewery) => {
+      response.redirect('beer/show')
+  })
 });
 
 // SHOW
@@ -75,19 +66,15 @@ router.get('/:beerId', (request, response) => {
 
     Brewery.findById(breweryId)
         .then((brewery) => {
-            var arrayOfBeers = brewery.beers;
+            const foundBeer = brewery.beers.find((beer) => {
+                return beer.id === beerId;
+            })
 
             response.render(
                 'beer/show',
                 {
-                    arrayOfBeers,
                     breweryId,
-                    beerId,
-                    name: brewery.beers.name,
-                    description: brewery.beers.description,
-                    reviews: brewery.beers.reviews,
-                    rating: brewery.beers.rating,
-                    photo: brewery.beers.photo
+                    beer: foundBeer
                 }
             )
         })
