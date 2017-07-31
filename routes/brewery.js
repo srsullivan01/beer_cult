@@ -8,7 +8,7 @@ var Beer = require('../models/beer');
 
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
-  
+
   const beerId = request.params.beerId;
   const breweryId = request.params.breweryId;
 
@@ -27,15 +27,16 @@ router.get('/', function(request, response, next) {
           location: brewery.location,
           email: brewery.email,
           website: brewery.website
-        },
-    ) .catch((error) => {
-    console.log('Error retrieving brewery from database!');
-    console.log(error);
-  });
-  });
+        }
+      )
+    }).catch((error) => {
+      console.log('Error retrieving brewery from database!');
+      console.log(error);
+    });
+
 });
 
-//this is the create new form 
+//this is the create new form
 router.get('/new', (request, response) => {
 	response.render('brewery/new');
 });
