@@ -1,10 +1,10 @@
 <h1>Login</h1>
-{{!-- {{#each user}} --}}
-<form action="/users/{{this._id}}" method="POST">
+ {{#each this.user}} 
+  <form action="/users/{{this._id}}?_method=PUT" method="POST">
+ {{/each}} 
 	<input type="text" name="username" placeholder="username" required>
     <input type="submit" value="Log In">
 </form>
-{{!-- {{/each}} --}}
 
 
 <div><a href="/brewery">Back to Main Page</a></div>

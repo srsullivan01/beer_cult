@@ -7,6 +7,9 @@ var Beer = require("../models/beer");
 
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
+
+  const userId = request.params.userId;
+  
   User.find({}).then((user) => {
     response.render(
         'user/index',
@@ -14,12 +17,6 @@ router.get('/', function(request, response, next) {
           user: user,
           username: this.username,
           //password: this.password,
-          created_at: this.Date,
-          updated_at: this.Date,
-          bio: this.bio,
-          photo: this.photo,
-          beers: this.beer,
-          fridge: this.fridge
         },
     ) .catch((error) => {
     console.log('Error retrieving user from database!');
@@ -53,13 +50,20 @@ router.post('/', (request, response) => {
 // user show route
 router.get('/:userid', function(request, response, next) {
 
-    var userToSearchFor = request.params.id;
+    var userToSearchFor = request.params.userId;
+
+    console.log(userToSearchFor);
 
     User.findById(userToSearchFor)
         .then((user) => {
             response.render(
                 'user/show',
-                { user }
+                { user
+                  // bio: user.bio,
+                  // photo: this.photo,
+                  // beers: this.beers,
+                  // fridge: this.fridge 
+                }
             );
         })
         .catch((error) => {
