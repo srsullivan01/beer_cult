@@ -6,7 +6,8 @@ body {
 };
 
 a {
-  color: #00B7FF;
+  color: #5d4037 !default;
+  text-decoration: none !important;
 };
 
 img.resize {
@@ -19,7 +20,6 @@ img.resize {
 
 
 footer {
-  background-color: #006064 cyan darken-4;
   color: #F6F7BD;
   padding: 15px;
 };

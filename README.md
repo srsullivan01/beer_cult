@@ -7,6 +7,7 @@ Trello: https://trello.com/b/m0l7v3v6/beer-app-from-hell
 Beer Cult is an app that maintains a database of craft beers, breweries, and user-submitted beer reviews.
 
 ##Unsolved Features:##
+- responsive sizing of images
 ##User Stories:##
 As a user I would like to:
   - View a list of local breweries and their beers
