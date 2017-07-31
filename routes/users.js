@@ -70,18 +70,15 @@ router.post('/', (request, response) => {
 router.get('/:userId', function(request, response, next) {
 
     var userToSearchFor = request.params.userId;
-
-    console.log(userToSearchFor);
+    // const beerId = request.params.beerId;
 
     User.findById(userToSearchFor)
         .then((user) => {
             response.render(
                 'user/show',
-                { user
-                  // bio: user.bio,
-                  // photo: this.photo,
-                  // beers: this.beers,
-                  // fridge: this.fridge 
+                { 
+                  user,
+                  beers: user.beers
                 }
             );
         })
@@ -116,7 +113,7 @@ router.get('/:userId/delete', (request, response) => {
   const userIdToDelete = request.params.userId;
   User.findByIdAndRemove(userIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${userIdToDelete} is gone`);
-    response.redirect('/user');
+    response.redirect('/users');
   });
 });
 

@@ -1,11 +1,11 @@
  <h1>Edit Your Profile</h1>
 
-<form action="/user/{{this._id}}?_method=PUT" method="POST">
+<form action="/users/{{user._id}}?_method=PUT" method="POST">
     <input type="text" name="username" placeholder="username" value="{{user.username}}">
     <input type="text" name="bio" placeholder="bio" value="{{user.bio}}">
     <input type="file" placeholder="photo" name="photo" value="{{user.photo}}">
     <input type="submit" value="Update user">
 </form>
 
-<div><a href="/users">Back to Bio Page</a></div>
+<div><a href="/users/{{user._id}}/">Back to Bio Page</a></div>
 <div><a href="/brewery">Back to Main Page</a></div> 

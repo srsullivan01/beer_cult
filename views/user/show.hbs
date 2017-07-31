@@ -1,10 +1,8 @@
 <h1>{{user.username}}</h1>
-<div>Bio: {{user.bio}} </div>
-<h2>My Reviews<h2>
-  <div>{{#each beers}}><ul>
-    <li></li>
-    {{/each}}
-  </div>
-<h2>My Fridge</h2>
-<div>{{user.fridge}}</h2>
+  <div>Bio: {{user.bio}} </div>
+  <div>{{user.photo}}</div>
+  <div>My Beers: {{beers}}</div>
+  <div>My Fridge: {{user.fridge}}</div>
 
+<div><a href="/users/{{user._id}}/edit">Edit Profile</a></div>
+<div><a href="/users/{{user._id}}/delete">Delete My Account</a></div>
