@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router({mergeParams: true});
 
 var Brewery = require("../models/brewery");
 var User = require("../models/user");

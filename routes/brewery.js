@@ -8,11 +8,11 @@ var Beer = require('../models/beer');
 
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
-
+  
   const beerId = request.params.beerId;
   const breweryId = request.params.breweryId;
 
-  Brewery.find({breweryId})
+  Brewery.find({})
     .then((brewery) => {
       var arrayOfBeers = brewery.beers;
         response.render(
