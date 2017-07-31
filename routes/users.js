@@ -70,13 +70,16 @@ router.post('/', (request, response) => {
 router.get('/:userId', function(request, response, next) {
 
     var userToSearchFor = request.params.userId;
-    // const beerId = request.params.beerId;
+    const beerId = request.params.beerId;
 
     User.findById(userToSearchFor)
         .then((user) => {
+          var arrayOfBeers = user.beers;
+          console.log(user);
             response.render(
                 'user/show',
                 { 
+                  arrayOfBeers,
                   user,
                   beers: user.beers
                 }
