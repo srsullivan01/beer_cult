@@ -109,16 +109,21 @@ router.put('/:beerId', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
     const updatedBeerInfo = request.body;
-
+    const foundBeerArray =[];
     Brewery.findById(breweryId)
+         
         .then((brewery) => {            
             const foundBeer = brewery.beers.find((beer) => {
                 return beer.id === beerId;
+           
             })
+
             foundBeer.name = request.body.name;
             foundBeer.description = request.body.description;
             foundBeer.reviews = request.body.reviews;
             foundBeer.rating = request.body.rating;
+            foundBeerArray.push(foundBeer);
+            
 
             return brewery.save();
 
@@ -130,7 +135,7 @@ router.put('/:beerId', (request, response) => {
                         {
                             breweryId,
                             brewery,
-                            beer: brewery.beers,
+                            beer: foundBeerArray[0]
                         }
                     )
                 })
