@@ -1,36 +1,29 @@
-html,
-body,
-.view {
-    height: 100%;
-
-};
 body {
   display: flex;
   padding: 50px;
   font-family: 'Cairo', sans-serif;
 };
+
 a {
   color: #00B7FF;
 };
-.view {
-background: url(/images/beer-barrel-keg-cask-oak.jpg)no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
+.active{
+  background-color: #BF4D28;
 }
-.row.content {height: 1500px}
+.row.content {
+  height: 1500px};
 
 .sidenav {
-  background-color: #F6F7BD;
+  background-color: #E6AC27;
   height: 100%;
-}
+};
 
 footer {
-  background-color: #555;
-  color: white;
+  background-color: #655643;
+  color: #F6F7BD;
   padding: 15px;
-}
+};
 
 @media screen and (max-width: 767px) {
   .sidenav {
@@ -38,4 +31,4 @@ footer {
     padding: 15px;
   }
   .row.content {height: auto;}
-}
+};
