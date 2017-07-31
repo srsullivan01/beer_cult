@@ -25,7 +25,7 @@ var dirtyMike = new User({
 	username: "dirtyMikester",
 	bio: "dirty mike is the name!",
 	photo: "http://i.imgur.com/EykXDof.jpg",
-	beers: [name: "double Jeopardy"],
+	beers: [doubleJeopardy],
 	fridge: []
 });
 
@@ -33,7 +33,7 @@ var ct = new User({
 	username: "Clarence",
 	bio: "I love web development!",
 	photo: "http://i.imgur.com/EykXDof.jpg",
-	beers: [name: "tropicalia"],
+	beers: [hooligan],
 	fridge: []
 });
 
