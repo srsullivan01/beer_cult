@@ -25,7 +25,15 @@ var dirtyMike = new User({
 	username: "dirtyMikester",
 	bio: "dirty mike is the name!",
 	photo: "http://i.imgur.com/EykXDof.jpg",
-	beers: [{name: "double Jeopardy"}],
+	beers: [name: "double Jeopardy"],
+	fridge: []
+});
+
+var ct = new User({
+	username: "Clarence",
+	bio: "I love web development!",
+	photo: "http://i.imgur.com/EykXDof.jpg",
+	beers: [name: "tropicalia"],
 	fridge: []
 });
 
@@ -58,6 +66,11 @@ var scoffLaw  = new Brewery({
 dirtyMike.save(function(error){
 	if (error) console.log(error);
 	console.log('dirty mike created!');
+});
+
+ct.save(function(error){
+	if (error) console.log(error);
+	console.log('ct created!');
 });
 
 doubleJeopardy.save(function(error){
