@@ -5,19 +5,19 @@
     <metsa charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+      <link rel='stylesheet' href='/stylesheets/style.css'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    </head>
   <body>
   <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-3 sidenav">
         <h4>Beer Cult</h4>
         <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="#section1">Home</a></li>
-          <li><a href="#section2">Beers</a></li>
-          <li><a href="#section3">Beweries</a></li>
-          <li><a href="#section3">My Profile</a></li>
+          <li class="active"><a href="/brewery/:breweryId/beer/">Beers</a></li>
+          <li><a href="/brewery">Breweries</a></li>
+          <li><a href="/users">Users</a></li>
         </ul><br>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -35,7 +35,9 @@
   <!--/Intro content-->
 </div>
 <!--/.Mask-->
-
+<footer class="container-fluid">
+  <p>Made by your friends at DevHops2.0</p>
+</footer>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
