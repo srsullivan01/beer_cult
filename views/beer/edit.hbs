@@ -1,9 +1,10 @@
 
 <form action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST">
     <input type="text" value="{{beer.name}}" name="name">
-    <input type="text" value="{{beer.description}}" description="description" placeholder="description">
-    <input type="text" value="{{beer.reviews}}" reviews="reviews" placeholder="review this beer">
-    <input type="text" value="{{beer.rating}}" rating="rating" placeholder="rate this beer from 1-5">
+    <input type="text" value="{{beer.description}}" name="description" placeholder="description">
+    <input type="text" value="{{beer.reviews}}" name="reviews" placeholder="review this beer">
+    <input type="text" value="{{beer.rating}}" name="rating" placeholder="rate this beer from 1-5">
     <input type="submit" value="Update Beer">
 </form>
+
 

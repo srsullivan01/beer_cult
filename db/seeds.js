@@ -31,7 +31,7 @@ var scoffLaw  = new Brewery({
 var doubleJeopardy = new Beer({
 	name: "double Jeopardy",
 	description: "hazy with golden orange hoppy, bittersweet. YUM!",
-	reviews: [],
+	reviews: "great beer",
 	rating: 5,
 	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
 	locations: "Atlanta, Chicago, LA",
@@ -42,7 +42,7 @@ scoffLaw.beers.push(doubleJeopardy);
 var hooligan = new Beer({
 	name: "hooligan",
 	description: "hazy with golden orange hoppy, bittersweet. YUM!",
-	reviews: [],
+	reviews: "love the color",
 	rating: 5,
 	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
 	locations: "Atlanta, Chicago, LA",

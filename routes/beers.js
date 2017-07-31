@@ -106,35 +106,31 @@ router.get('/:beerId/edit', (request, response) => {
 
 // UPDATE AN ITEM
 router.put('/:beerId', (request, response) => {
-    console.log("You hit the update route");
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
-    console.log(request.body.name);
+    const updatedBeerInfo = request.body;
 
     Brewery.findById(breweryId)
-        .then((brewery) => {
-            
+        .then((brewery) => {            
             const foundBeer = brewery.beers.find((beer) => {
                 return beer.id === beerId;
             })
-            arrayOfBeers = brewery.beers;
-            
             foundBeer.name = request.body.name;
+            foundBeer.description = request.body.description;
+            foundBeer.reviews = request.body.reviews;
+            foundBeer.rating = request.body.rating;
+
             return brewery.save();
 
                 }).then((brewery) => {
                     console.log("updated user with ID of " + brewery._id)
 
                     response.render(
-                        'beer/index',
+                        'beer/show',
                         {
                             breweryId,
                             brewery,
-                            breweryName: brewery.name,
                             beer: brewery.beers,
-                            name: brewery.beers,
-                            arrayOfBeers
-
                         }
                     )
                 })

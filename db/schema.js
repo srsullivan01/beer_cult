@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 var BeerSchema = new Schema ({
   name: {type: String, required: true},
   description: String,
-  reviews: [],
+  reviews: String,
   rating: Number,
   photo: String,
   locations: String,
