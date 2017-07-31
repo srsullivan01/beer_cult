@@ -25,7 +25,7 @@ Beer.remove({}, function(error){
 var dirtyMike = new User({
 	username: "dirtyMikester",
 	bio: "dirty mike is the name!",
-	photo: "http://i.imgur.com/EykXDof.jpg",
+	photo: "https://s-media-cache-ak0.pinimg.com/736x/39/5e/83/395e8312d399c0ad1607c4b76a55778d--funny-fitness-workout-fitness.jpg",
 	beers: [doubleJeopardy],
 	fridge: []
 });

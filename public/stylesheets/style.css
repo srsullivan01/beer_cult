@@ -9,16 +9,17 @@ a {
   color: #00B7FF;
 };
 
+img.resize {
+  max-width:100%;
+  max-height:auto;
+};
+
 .row.content {
   height: 1500px};
 
-.sidenav {
-  background-color: #E6AC27;
-  height: 100%;
-};
 
 footer {
-  background-color: #655643;
+  background-color: #006064 cyan darken-4;
   color: #F6F7BD;
   padding: 15px;
 };
