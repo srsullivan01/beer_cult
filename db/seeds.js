@@ -1,5 +1,6 @@
 var mongoose = require ('mongoose');
-mongoose.connect('mongodb://localhost/beer_cult');
+mongoose.connect(process.env.MONGODB_URI);
+
 
 var Brewery = require('../models/brewery');
 var User = require('../models/user');
@@ -107,14 +108,3 @@ db.once('open', function() {
 module.exports = db;
 
 mongoose.connection.close();
-
-
-
-
-
-
-
-
-
-
-
