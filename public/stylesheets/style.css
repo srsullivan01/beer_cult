@@ -8,24 +8,15 @@ a {
   color: #00B7FF;
 };
 
-img {
-  display: block;
-  max-width:230px;
-  max-height:95px;
-  width: auto;
-  height: auto;
-}
+img.resize {
+  max-width:50%;
+  max-height:50%;
+};
 
-.active{
-  background-color: #BF4D28;
-}
+
 .row.content {
   height: 1500px};
 
-.sidenav {
-  background-color: #E6AC27;
-  height: 100%;
-};
 
 footer {
   background-color: #655643;
