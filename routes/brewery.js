@@ -28,7 +28,7 @@ router.get('/', function(request, response, next) {
           email: brewery.email,
           website: brewery.website
         },
-    ) .catch((error) => {
+    ).catch((error) => {
     console.log('Error retrieving brewery from database!');
     console.log(error);
   });
