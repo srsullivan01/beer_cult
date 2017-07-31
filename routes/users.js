@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router({mergeParams: true});
 
 var Brewery = require("../models/brewery");
 var User = require("../models/user");
@@ -101,13 +101,12 @@ router.get('/:id/delete', (request, response) => {
 router.get('/:userId/edit', (request, response) => {
   const userIdToFind = request.params.userId;
   User.findById(userIdToFind).then((user) => {
-    response.send('hello')
-  //   response.render(
-  //     'user/edit',
-  //     {user},
-  //   );
-  // }).catch((error) => {
-  //   console.log(`error updating ${userIdToFind}`);
+    response.render(
+      'user/edit',
+      {user},
+    );
+  }).catch((error) => {
+    console.log(`error updating ${userIdToFind}`);
   });
 });
 

@@ -1,10 +1,21 @@
+html,
+body,
+.view {
+    height: 100%;
+
+};
 body {
+  display: flex;
   padding: 50px;
   font-family: 'Cairo', sans-serif;
-
-
-}
-
+};
 a {
   color: #00B7FF;
+};
+.view {
+background: url(/images/beer-barrel-keg-cask-oak.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
