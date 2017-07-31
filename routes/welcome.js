@@ -1,8 +1,20 @@
-const express = require('express');
-const router = express.Router();
+//require express
+var express = require('express');
+var router = express.Router();
 
-router.get('/', function(req, res){
-    res.render('welcome');
+//bring in all user info
+var User = require("../models/user");
+
+//main login page
+router.get('/', (request, response) => {
+
+    response.render('welcome');
 });
+
+//when clicking login button
+
+
+
+
 
 module.exports = router;
