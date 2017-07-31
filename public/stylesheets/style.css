@@ -2,15 +2,13 @@ body {
   display: flex;
   padding: 50px;
   font-family: 'Cairo', sans-serif;
+
 };
 
 a {
   color: #00B7FF;
 };
 
-.active{
-  background-color: #BF4D28;
-}
 .row.content {
   height: 1500px};
 
