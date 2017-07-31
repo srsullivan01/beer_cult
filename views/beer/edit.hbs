@@ -1,10 +1,8 @@
 
-<form action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST">
+<form class="form-inline" action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST">
+  <div class="form-group">
     <input type="text" value="{{beer.name}}" name="name">
-    
-    <input type="submit" value="Update Beer">
-</form>
-<<<<<<< HEAD
-=======
 
->>>>>>> 6fa0c244d4e3eebf5afc13fc24b08f5076c3e4de
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </div>
+</form>

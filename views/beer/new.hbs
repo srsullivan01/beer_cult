@@ -1,6 +1,8 @@
-<<<<<<< HEAD
-<form action="/brewery/{{breweryId}}/beer/{{beerId}}" method="POST">
+<h1>Add a New Beer</h1>
+<form class="form-inline" action="/brewery/{{breweryId}}/beer/{{beerId}}" method="POST">
+  <div class="form-group">
     <input type="text" placeholder="beer name" name="name">
+  </div>
     <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Dropdown
@@ -14,19 +16,13 @@
     <li><a href="#">other</a></li>
   </ul>
 </div>
-    <input type="submit" value="Create Beer">
-=======
-<h1>Add a New Beer</h1>
-
+    <button class="btn waves-effect waves-light" type="submit" name="action">Create Beer</button>
 <form action="/brewery/{{breweryId}}/beer" method="POST">
     <input type="text" placeholder="name" name="name">
     <input type="submit" value="Create">
->>>>>>> 6fa0c244d4e3eebf5afc13fc24b08f5076c3e4de
+
 </form>
-<<<<<<< HEAD
-=======
 
-<div><a href="/brewery">Back to Brewery Main Page</a></div>
+<div><a href="/brewery"><button>Back to Brewery Main Page</button></a></div>
 
-<div><a href="/brewery/{{breweryId}}/beer">Back to Beer Page</a></div>
->>>>>>> 45945a8df62c79563c7d030dd289f1b5c92ef1ae
+<div><a href="/brewery/{{breweryId}}/beer"><button>Back to Beer Page</button></a></div>

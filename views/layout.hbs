@@ -4,40 +4,27 @@
     <title>Beer Cult</title>
     <metsa charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
-      <link rel='stylesheet' href='/stylesheets/style.css'>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    </head>
+    <link rel='stylesheet' href="/stylesheets/style.css"/>
+  </head>
   <body>
-  <div class="container-fluid">
-    <div class="row content">
-      <div class="col-sm-3 sidenav">
-        <h4>Beer Cult</h4>
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="/brewery/:breweryId/beer/">Beers</a></li>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="logo">Beer Cult</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/brewery/:breweryId/beer/">Beers</a></li>
           <li><a href="/brewery">Breweries</a></li>
           <li><a href="/users">Users</a></li>
-        </ul><br>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>
-        </div>
+        </ul>
       </div>
+    </nav>
 
-<div class="col-sm-9">
-    {{{body}}}
-  </div>
-  <!--/Intro content-->
-</div>
-<!--/.Mask-->
-<footer class="container-fluid">
+<footer>
   <p>Made by your friends at DevHops2.0</p>
 </footer>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
   </body>
 </html>
