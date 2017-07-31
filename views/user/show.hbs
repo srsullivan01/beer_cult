@@ -1,7 +1,9 @@
 <h1>{{user.username}}</h1>
   <div>Bio: {{user.bio}} </div>
   <div>{{user.photo}}</div>
-  <div>My Beers: {{user.beers}}</div>
+  {{#each user.beers}}
+  <div>My Beers: <a href="/brewery/{{this.breweryId}}/beer/{{this._id}}">{{this.name}}</a></div>
+  {{/each}}
   <div>My Fridge: {{user.fridge}}</div>
 
 <div><a href="/users/{{user._id}}/edit">Edit Profile</a></div>

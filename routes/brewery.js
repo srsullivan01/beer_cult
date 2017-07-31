@@ -15,11 +15,12 @@ router.get('/', function(request, response, next) {
   Brewery.find({})
     .then((brewery) => {
       var arrayOfBeers = brewery.beers;
+      console.log(brewery);
         response.render(
         'brewery/index',
         {
           arrayOfBeers,
-          breweryId: breweryId,
+          breweryId,
           beerId,
           brewery: brewery,
           name: brewery.name,

@@ -10,7 +10,8 @@ var BeerSchema = new Schema ({
   reviews: [],
   rating: Number,
   photo: String,
-  locations: String
+  locations: String,
+  breweryId: mongoose.Schema.Types.ObjectId
 });
 var UserSchema = new Schema ({
   username: String,
