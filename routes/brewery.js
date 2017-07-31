@@ -28,11 +28,12 @@ router.get('/', function(request, response, next) {
           email: brewery.email,
           website: brewery.website
         },
-      ).catch((error) => {
-    console.log('Error retrieving brewery from database!');
-    console.log(error);
-  });
-  });
+      )
+    }).catch((error) => {
+      console.log('Error retrieving brewery from database!');
+      console.log(error);
+    });
+
 });
 
 //this is the create new form
