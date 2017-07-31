@@ -2,7 +2,7 @@ const express = require('express');
 
 const Brewery = require('../models/brewery');
 const Beer = require('../models/beer');
-// const User = require('../models/user')
+const User = require('../models/user')
 
 const router = express.Router({ mergeParams: true });
 
@@ -11,16 +11,18 @@ const router = express.Router({ mergeParams: true });
 // INDEX
 router.get('/', (request, response) => {
     const breweryId = request.params.breweryId;
-    const beerId = request.params.beerId;
 
-    Brewery.find({})
+    Brewery.findById(breweryId)
         .then((brewery) => {
+            var arrayOfBeers = brewery.beers;
+            console.log("Array of Beers: " + arrayOfBeers);
+            console.log("Brewery Id: " + breweryId);
             response.render(
                 'beer/index',
                 {
-                    breweryId,
-                    beerId,
+                    arrayOfBeers,
                     brewery: brewery,
+                    breweryId,
                     name: brewery.beers,
                     description: brewery.beers,
                     reviews: brewery.beers,
@@ -45,25 +47,16 @@ router.get('/new', (request, response) => {
 
 // CREATE ROUTE
 router.post('/', (request, response) => {
-    const newBeerInfoFromForm = request.body;
-    const breweryId = request.params.breweryId;
+  const breweryId = request.params.breweryId;
+  const newBeerInfo = request.body;
 
-  Beer.create(newBeerInfoFromForm).then((beer) => {
-    response.render(
-        'beer/show',
-        {
-                breweryId,
-                name: beer.name,
-                description: beer.description,
-                reviews: beer.reviews,
-                rating: beer.rating,
-                photo: beer.photo
-        },
-    );
-  }).catch((error) => {
-    console.log('Error saving new user to database!');
-    console.log(error);
-  });
+  Brewery.findById(breweryId).then((brewery) => {
+      const newBeer = new Beer(newBeerInfo);
+      brewery.beers.push(newBeer);
+      return brewery.save();
+  }).then((brewery) => {
+      response.redirect('beer/show')
+  })
 });
 
 // SHOW
@@ -71,19 +64,17 @@ router.get('/:beerId', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
 
-    Beer.findById(beerId)
-        .then((beer) => {
+    Brewery.findById(breweryId)
+        .then((brewery) => {
+            const foundBeer = brewery.beers.find((beer) => {
+                return beer.id === beerId;
+            })
 
             response.render(
                 'beer/show',
                 {
                     breweryId,
-                    beerId,
-                    name: beer.name,
-                    description: beer.description,
-                    reviews: beer.reviews,
-                    rating: beer.rating,
-                    photo: beer.photo
+                    beer: foundBeer
                 }
             )
         })
@@ -92,84 +83,97 @@ router.get('/:beerId', (request, response) => {
         })
 });
 
-// // RENDER THE EDIT FORM
-// router.get('/:beerId/edit', (request, response) => {
-//     const userId = request.params.userId;
-//     const itemId = request.params.itemId;
+// RENDER THE EDIT FORM
+router.get('/:beerId/edit', (request, response) => {
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
 
-//     User.findById(userId)
-//         .then((user) => {
-//             const foundItem = user.items.find((item) => {
-//                 return item.id === itemId;
-//             })
+    Brewery.findById(breweryId)
+        .then((brewery) => {
+            arrayOfBeers = brewery.beers;
 
-//             response.render('items/edit', {
-//                 userId,
-//                 item: foundItem
-//             });
-//         })
-// });
+            const foundBeer = brewery.beers.find((beer) => {
+                return beer.id === beerId;
+            })
 
-// // UPDATE AN ITEM
-// router.put('/:beerId', (request, response) => {
-//     const userId = request.params.userId;
-//     const itemId = request.params.itemId;
+            response.render('beer/edit', {
+                breweryId,
+                beerId,
+                beer: foundBeer
+            });
+        })
+});
 
-//     User.findById(userId)
-//         .then((user) => {
-//             const foundItem = user.items.find((item) => {
-//                 return item.id === itemId;
-//             })
+// UPDATE AN ITEM
+router.put('/:beerId', (request, response) => {
+    console.log("You hit the update route");
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
+    console.log(request.body.name);
 
-//             foundItem.name = request.body.name;
+    Brewery.findById(breweryId)
+        .then((brewery) => {
+            
+            const foundBeer = brewery.beers.find((beer) => {
+                return beer.id === beerId;
+            })
+            arrayOfBeers = brewery.beers;
+            
+            foundBeer.name = request.body.name;
+            return brewery.save();
 
-//             user.save()
-//                 .then((user) => {
-//                     console.log("updated user with ID of " + user._id)
+                }).then((brewery) => {
+                    console.log("updated user with ID of " + brewery._id)
 
-//                     response.render(
-//                         'items/index',
-//                         {
-//                             userId: user._id,
-//                             userName: user.first_name,
-//                             items: user.items
-//                         }
-//                     )
-//                 })
-//         })
+                    response.render(
+                        'beer/index',
+                        {
+                            breweryId,
+                            brewery,
+                            breweryName: brewery.name,
+                            beer: brewery.beers,
+                            name: brewery.beers,
+                            arrayOfBeers
 
-// });
+                        }
+                    )
+                })
 
-// // DELETE 
-// router.get('/:beerId/delete', (request, response) => {
-//     const userId = request.params.userId;
-//     const itemId = request.params.itemId;
+});
 
-//     User.findById(userId)
-//         .then((user) => {
+// DELETE 
 
-//             const itemToDelete = user.items.find((item) => {
-//                 return item.id === itemId;
-//             })
+router.get('/:beerId/delete', (request, response) => {
+    const breweryId = request.params.breweryId;
+    const beerId = request.params.beerId;
 
-//             const indexToDelete = user.items.indexOf(itemToDelete);
+    Brewery.findById(breweryId)
+        .then((brewery) => {
+            arrayOfBeers = brewery.beers;
 
-//             user.items.splice(indexToDelete, 1);
+            brewery.beers.id(beerId).remove();
 
-//             user.save().then((user) => {
-//                 console.log("Successfully deleted item with ID of " + itemId + " from user");
+            return brewery.save();
 
-//                 response.render(
-//                     'items/index',
-//                     {
-//                         userId: user._id,
-//                         userName: user.first_name,
-//                         items: user.items
-//                     }
-//                 )
-//             })
-//         })
-// });
+        }).then((brewery) => {
+            response.render(
+                'beer/index',
+        {
+                    breweryId,
+                    beerId,
+                    brewery: brewery,
+                    name: brewery.beers,
+                    description: brewery.beers,
+                    reviews: brewery.beers,
+                    rating: brewery.beers,
+                    photo: [],
+                    locations: brewery.beers,
+                    arrayOfBeers
+        }
+            )
+        })
+
+});
 
 
 

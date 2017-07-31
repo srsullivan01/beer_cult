@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router({mergeParams: true});
 
 var Brewery = require("../models/brewery");
 var User = require("../models/user");
@@ -28,9 +28,48 @@ router.get('/', function(request, response, next) {
   });
 });
 
+//this is the create new form
+router.get('/new', (request, response) => {
+	response.render('user/new');
+});
+
+// User create route
+
+router.post('/', (request, response) => {
+
+  const newUserInfoFromForm = request.body;
+
+  User.create(newUserInfoFromForm).then((user) => {
+    response.render(
+        'user/show',
+        {user},
+    );
+  }).catch((error) => {
+    console.log('Error saving new user to database!');
+    console.log(error);
+  });
+});
+
+// user show route
+router.get('/:userid', function(request, response, next) {
+
+    var userToSearchFor = request.params.id;
+
+    User.findById(userToSearchFor)
+        .then((user) => {
+            response.render(
+                'user/show',
+                { user }
+            );
+        })
+        .catch((error) => {
+            console.log(`Error retrieving user with ID of ${userToSearchFor}`)
+        });
+});
+
 //UPDATE user
-router.put('/:id', (request, response) => {
-  const userIdToUpdate = request.params.id;
+router.put('/:userId', (request, response) => {
+  const userIdToUpdate = request.params.userId;
   const updatedUserInfo = request.body;
 
   User.findByIdAndUpdate(
@@ -38,7 +77,7 @@ router.put('/:id', (request, response) => {
     updatedUserInfo,
     {new: true}
   ).then((user) => {
-    console.log(`userwith ID ${user._id} has been updated`);
+    console.log(`usercwith ID ${user._id} has been updated`);
     response.render(
       'user/show',
       {user},
@@ -58,32 +97,9 @@ router.get('/:id/delete', (request, response) => {
   });
 });
 
-//this is the create new form
-router.get('/new', (request, response) => {
-	response.render('user/new');
-});
-
-// user show route
-router.get('/:id', function(request, response, next) {
-
-    var userToSearchFor = request.params.id;
-
-    User.findById(userToSearchFor)
-        .then((user) => {
-            response.render(
-                'user/show',
-                { user }
-            );
-        })
-        .catch((error) => {
-            console.log(`Error retrieving user with ID of ${userToSearchFor}`)
-        });
-});
-
-
 //RENDER EDIT FORM
-router.get('/:id/edit', (request, response) => {
-  const userIdToFind = request.params.id;
+router.get('/:userId/edit', (request, response) => {
+  const userIdToFind = request.params.userId;
   User.findById(userIdToFind).then((user) => {
     response.render(
       'user/edit',

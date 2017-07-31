@@ -25,7 +25,15 @@ var dirtyMike = new User({
 	username: "dirtyMikester",
 	bio: "dirty mike is the name!",
 	photo: "http://i.imgur.com/EykXDof.jpg",
-	beers: [{name: "double Jeopardy"}],
+	beers: [doubleJeopardy],
+	fridge: []
+});
+
+var ct = new User({
+	username: "Clarence",
+	bio: "I love web development!",
+	photo: "http://i.imgur.com/EykXDof.jpg",
+	beers: [hooligan],
 	fridge: []
 });
 
@@ -38,9 +46,18 @@ var doubleJeopardy = new Beer({
 	locations: "Atlanta, Chicago, LA"
 });
 
+var hooligan = new Beer({
+	name: "hooligan",
+	description: "hazy with golden orange hoppy, bittersweet. YUM!",
+	reviews: [],
+	rating: 5,
+	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
+	locations: "Atlanta, Chicago, LA"
+});
+
 var scoffLaw  = new Brewery({
 	name: "scofflaw brewering company",
-	beers: [doubleJeopardy],
+	beers: [doubleJeopardy, hooligan],
 	location: "Atlanta",
 	email: "info@scofflawbeer.com",
 	website: "scofflawbeer.com"
@@ -51,9 +68,19 @@ dirtyMike.save(function(error){
 	console.log('dirty mike created!');
 });
 
+ct.save(function(error){
+	if (error) console.log(error);
+	console.log('ct created!');
+});
+
 doubleJeopardy.save(function(error){
 	if (error) console.log(error);
 	console.log('double Jeopardy created!');
+});
+
+hooligan.save(function(error){
+	if (error) console.log(error);
+	console.log('hooligan created!');
 });
 
 scoffLaw.save(function(error){
