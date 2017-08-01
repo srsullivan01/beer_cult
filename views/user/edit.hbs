@@ -5,8 +5,10 @@
     <input type="text" name="bio" placeholder="bio" value="{{user.bio}}">
     {{!-- <input type="text" name="beers" placeholder="my beers" value="{{user.beers}}"> --}}
     <input type="file" placeholder="photo" name="photo" value="{{user.photo}}">
-    <input type="submit" value="Update user">
+    <input type="submit" value="Update user" class="form-button">
 </form>
 
-<div><a href="/users/{{user._id}}/">Back to Bio Page</a></div>
-<div><a href="/brewery">Back to Main Page</a></div> 
+    <button><div><a href="/users/{{user._id}}/">Back to Bio Page</a></div></button>
+    <button><div><a href="/brewery">Back to Main Page</a></div></button>
+
+

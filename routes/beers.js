@@ -7,7 +7,6 @@ const User = require('../models/user')
 const router = express.Router({ mergeParams: true });
 
 
-
 // INDEX
 router.get('/', (request, response) => {
     const breweryId = request.params.breweryId;
