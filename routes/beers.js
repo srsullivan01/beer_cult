@@ -55,7 +55,7 @@ router.post('/', (request, response) => {
       brewery.beers.push(newBeer);
       return brewery.save();
   }).then((brewery) => {
-      response.redirect('beer/show')
+      response.redirect('beer/')
   })
 });
 
