@@ -1,4 +1,4 @@
-:beers: <h1>Beer Cult</h1> :beers:
+<h1>:beers:Beer Cult:beers:</h1>
 Heroku link: https://beer-cult.herokuapp.com/
 
 Wireframes:
@@ -36,13 +36,13 @@ As a user I would like to:
 <a href="https://ibb.co/itids5"><img src="https://preview.ibb.co/hiGys5/schema1.jpg" alt="schema1" border="0"></a>
 
 <b>Folders:</b><br>
-	- Public: images, stylesheets -> styles.css,<br>
-	- Models: beer.js, user.js, brewery.js<br>
-	- Routes: beer.js, user.js, brewery.js<br>
-	- Views:<br>
-    	- beer, includes: edit, index, new and show<br>
-    	- User, includes: edit, index, new, and show<br>
-    	- Brewery, includes: edit, index, new, and show
+- Public: images, stylesheets -> styles.css,<br>
+- Models: beer.js, user.js, brewery.js<br>
+- Routes: beer.js, user.js, brewery.js<br>
+- Views:<br>
+    - beer, includes: edit, index, new and show<br>
+    - User, includes: edit, index, new, and show<br>
+    - Brewery, includes: edit, index, new, and show
 
 <b>Resources Used:</b>
 * <a href="http://materializecss.com/"> Materialize </a>
