@@ -1,11 +1,10 @@
 <h1>{{user.username}}</h1>
 <div class="brewery-show">
   <div>Bio: {{user.bio}} </div>
-  <div>{{user.photo}}</div>
+  <img src="{{user.photo}}" height="150" width="150">
   {{#each user.beers}}
   <div>My Beers: <a href="/brewery/{{this.breweryId}}/beer/{{this._id}}">{{this.name}}</a></div>
   {{/each}}
-  <div>My Fridge: {{user.fridge}}</div>
 </div>
 <div class="beer-show-button">
   <button><div><a href="/users/{{user._id}}/edit">Edit Profile</a></div></button>
