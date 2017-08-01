@@ -103,7 +103,7 @@ router.get('/:beerId/edit', (request, response) => {
         })
 });
 
-// UPDATE AN ITEM
+// UPDATE BEERS
 router.put('/:beerId', (request, response) => {
     const breweryId = request.params.breweryId;
     const beerId = request.params.beerId;
@@ -116,7 +116,6 @@ router.put('/:beerId', (request, response) => {
                 return beer.id === beerId;
            
             })
-
             foundBeer.name = request.body.name;
             foundBeer.description = request.body.description;
             foundBeer.reviews = request.body.reviews;

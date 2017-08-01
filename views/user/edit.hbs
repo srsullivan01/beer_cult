@@ -3,7 +3,7 @@
 <form action="/users/{{user._id}}?_method=PUT" method="POST">
     <input type="text" name="username" placeholder="username" value="{{user.username}}">
     <input type="text" name="bio" placeholder="bio" value="{{user.bio}}">
-    {{!-- <input type="text" name="beers" placeholder="my beers" value="{{user.beers}}"> --}}
+     {{!-- <input type="text" name="beers" placeholder="my beers" value="{{userBeers}}">  --}}
     <input type="file" placeholder="photo" name="photo" value="{{user.photo}}">
     <input type="submit" value="Update user" class="form-button">
 </form>

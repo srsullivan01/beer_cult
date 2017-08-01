@@ -33,7 +33,6 @@ UserSchema.pre('save', function(next) {
   next();
 });
 
-
 var BrewerySchema = new Schema ({
   name: {type: String, required: true},
   beers: [BeerSchema],
