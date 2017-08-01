@@ -1,7 +1,8 @@
-:beers: ##Beer Cult## :beers:
+:beers: #Beer Cult :beers:
 Heroku link: https://beer-cult.herokuapp.com/
 
 Wireframes:
+<br><br>
 <a href="https://ibb.co/nbKJs5"><img src="https://preview.ibb.co/h6Gbek/beerlocations.jpg" alt="beerlocations" border="0"></a>
 <a href="https://ibb.co/c4ZjX5"><img src="https://preview.ibb.co/hUdBC5/breweryprofile.jpg" alt="breweryprofile" border="0"></a>
 <a href="https://ibb.co/mzNhKk"><img src="https://preview.ibb.co/b5DYQQ/search.jpg" alt="search" border="0"></a>
@@ -11,30 +12,30 @@ Wireframes:
 
 Trello: https://trello.com/b/m0l7v3v6/beer-app-from-hell
 
-##App Overview:##
+##App Overview:
 Beer Cult is an app that maintains a database of craft beers, breweries, and user-submitted beer reviews.
 
-##Unsolved Features:##
-- responsive sizing of images
+##Unsolved Features:
 - storing beers in user's wishlist
-##User Stories:##
+
+##User Stories:
 As a user I would like to:
   - View a list of local breweries and their beers
   - View a list of beers in the database
   - Add reviews to beers
   - See other users reviews of different beers
 
-##Stretch Goals:##
+##Stretch Goals:
 - Allow users to submit new types of beer
 - Build a login screen
 - Link with Google maps to help users navigate to breweries
 - Allow users to scan barcodes and populate beer information
 
-##Entity Relationship Diagrams:##
+##Entity Relationship Diagrams:
 <a href="https://ibb.co/gw7Gek"><img src="https://preview.ibb.co/m5mnkQ/erb.jpg" alt="erb" border="0"></a>
 <a href="https://ibb.co/itids5"><img src="https://preview.ibb.co/hiGys5/schema1.jpg" alt="schema1" border="0"></a>
 
-##Folders:##
+##Folders:
 	* Public: images, stylesheets -> styles.css,
 	* Models: beer.js, user.js, brewery.js
 	* Routes: beer.js, user.js, brewery.js
@@ -43,4 +44,7 @@ As a user I would like to:
     * User, includes: edit, index, new, and show
     * Brewery, includes: edit, index, new, and show
 
-##Resources Used:##
+##Resources Used:
+* <a href="http://materializecss.com/"> Materialize </a>
+* <a href="https://readwrite.com/2014/09/23/heroku-for-beginners-app-hosting-101/"> Heroku walkthrough </a>
+
