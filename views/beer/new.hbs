@@ -1,26 +1,9 @@
 <h1>Add a New Beer</h1>
-<form class="form-inline" action="/brewery/{{breweryId}}/beer/{{beerId}}" method="POST">
-  <div class="form-group">
-    <input type="text" placeholder="beer name" name="name">
-  </div>
-    <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">IPA</a></li>
-    <li><a href="#">Lager</a></li>
-    <li><a href="#">Stout</a></li>
-    <li><a href="#">Ale</a></li>
-    <li><a href="#">other</a></li>
-  </ul>
-</div>
-    <button class="btn waves-effect waves-light amber accent-3" type="submit" name="action">Create Beer</button>
+ 
 <form action="/brewery/{{breweryId}}/beer" method="POST">
     <input type="text" placeholder="name" name="name">
     <input type="submit" value="Create" class="form-button">
-</form>
+</form> 
 
 <div><a href="/brewery"><button>Back to Brewery Main Page</button></a></div>
 
