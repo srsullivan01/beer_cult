@@ -1,14 +1,14 @@
  <h1>Edit Your Profile</h1>
 
 <form action="/users/{{user._id}}?_method=PUT" method="POST">
+    <div class="form-group">
     <input type="text" name="username" placeholder="username" value="{{user.username}}">
     <input type="text" name="bio" placeholder="bio" value="{{user.bio}}">
      {{!-- <input type="text" name="beers" placeholder="my beers" value="{{userBeers}}">  --}}
     <input type="file" placeholder="photo" name="photo" value="{{user.photo}}">
     <input type="submit" value="Update user" class="form-button">
+    </div>
 </form>
 
     <button><div><a href="/users/{{user._id}}/">Back to Bio Page</a></div></button>
     <button><div><a href="/brewery">Back to Main Page</a></div></button>
-
-

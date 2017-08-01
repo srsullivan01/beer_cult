@@ -8,7 +8,7 @@ var Beer = require('../models/beer');
 
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
-  
+
   const beerId = request.params.beerId;
   const breweryId = request.params.breweryId;
 
@@ -36,7 +36,7 @@ router.get('/', function(request, response, next) {
   });
 });
 
-//this is the create new form 
+//this is the create new form
 router.get('/new', (request, response) => {
 	response.render('brewery/new');
 });
