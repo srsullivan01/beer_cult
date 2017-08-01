@@ -18,7 +18,7 @@ Beer Cult is an app that maintains a database of craft beers, breweries, and use
 <b>Unsolved Features:</b>
 - storing beers in user's wishlist
 
-<b>User Stories:</b>
+<b>User Stories:</b><br>
 As a user I would like to:
   - View a list of local breweries and their beers
   - View a list of beers in the database
