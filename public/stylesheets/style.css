@@ -1,9 +1,7 @@
   body {
-  /* padding: 50px; */
   font-family: 'Cairo', sans-serif;
   padding-bottom: 50px;
   background-image: url("http://static.wixstatic.com/media/797c90_ad106a0863dc49029c58cea2c9ccba30.jpg_srz_1036_1295_85_22_0.50_1.20_0.00_jpg_srz");
-  /* display: flex; */
   min-height: 100vh;
   flex-direction: column;
   color:rgb(225, 218, 218);
@@ -15,6 +13,7 @@
  }
 #page-footer {
   background-color: rgba(68, 65, 57, .7);
+  margin-top: 150px;
 }
 #nav-wrapper {
   background-color: rgba(68, 65, 57, .7);
