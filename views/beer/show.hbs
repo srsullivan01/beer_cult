@@ -1,13 +1,13 @@
+<div class="beer-show">
+    <div>Name: {{beer.name}}</div>
+    <div>Description: {{beer.description}}</div>
+    <div>Reviews: {{beer.reviews}}</div>
+    <div>Rating: {{beer.rating}}</div>
+    <div>{{beer.photo}}</div>
+</div>
 
-<div>Name: {{beer.name}}</div>
-<div>Description: {{beer.description}}</div>
-<div>Reviews: {{beer.reviews}}</div>
-<div>Rating: {{beer.rating}}</div>
-<div>{{beer.photo}}</div>
-
-
-
-
-<div><a href="/brewery/{{breweryId}}/beer/{{beer._id}}/edit">Edit Beer</a></div>
-<div><a href="/brewery/{{breweryId}}/beer">Back to Beer Page</a></div>
-<div><a href="/brewery/">Back to Brewery Page</a></div>
+<div class="beer-show-button">
+    <button><div><a href="/brewery/{{breweryId}}/beer/{{beer._id}}/edit">Edit Beer</a></div></button>
+    <button><div><a href="/brewery/{{breweryId}}/beer">Back to Beer Page</a></div></button>
+    <button><div><a href="/brewery/">Back to Brewery Page</a></div></button>
+</div>

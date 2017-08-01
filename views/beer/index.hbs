@@ -2,14 +2,15 @@
 
     {{#each arrayOfBeers}}
 
-    <div>Name: <a href="/brewery/{{../breweryId}}/beer/{{this._id}}">{{this.name}}</a></div>
-    <a href="/brewery/{{../breweryId}}/beer/{{this._id}}/edit">Edit</a> 
-    <a href="/brewery/{{../breweryId}}/beer/{{this._id}}/delete">Delete</a> 
-
+    <div class="beer-index"> 
+        <button><a href="/brewery/{{../breweryId}}/beer/{{this._id}}">{{this.name}}</a></button>
+        <a href="/brewery/{{../breweryId}}/beer/{{this._id}}/edit">Edit</a> 
+        <a href="/brewery/{{../breweryId}}/beer/{{this._id}}/delete">Delete</a> 
+    </div>
 
     {{/each}}
 
-<div>
+<div class="beer-show-button">
     <a href="/brewery/{{breweryId}}/beer/new"><button>Add New Beer</button></a>
     <a href="/brewery"><button>Back to Main Brewery Page</button></a>
 </div>

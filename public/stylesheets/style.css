@@ -67,3 +67,21 @@ button {
   align-items: center;
   padding: 80px;
 }
+.beer-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+}
+.beer-show-button {
+  display: flex;
+  justify-content: center
+}
+.beer-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-button {
+  background-color: rgba(68, 65, 57, .7);
+}

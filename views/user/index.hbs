@@ -1,14 +1,10 @@
 <h1>Login Now</h1>
- {{!-- {{#each user}}  --}}
   <form action="/users/login?_method=PUT" method="POST">
- {{!-- {{/each}}  --}}
 	<input type="text" name="username" placeholder="username" required>
-    <input type="submit" value="Log In">
+    <input type="submit" value="Log In" class="form-button">
 </form>
-
-<div><a href="/users/new">Sign Up</a></div>
-
-<div><a href="/brewery">Back to Main Page</a></div>
-
-
+<div class="beer-show-button">
+    <button><div><a href="/users/new">Sign Up</a></div></button>
+    <button><div><a href="/brewery">Back to Main Page</a></div></button>
+</div>
   
