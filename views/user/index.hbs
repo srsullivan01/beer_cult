@@ -1,11 +1,9 @@
-<h1>User Page</h1>
-{{#each user}}
-    <div>
-        <img src="{{this.photo}}">
-         <div>Name: <a href="/users/{{this._id}}"></a>{{this.username}}</div>
-         <div><a href="/users/{{this._id}}/bio"></a>Bio: {{this.bio}}</div>
-         <div>{{this.username}}'s <a href="/brewery/{{../this._id}}/beer">Beers</a></div>
-         <a href="/users/{{this._id}}/delete"><button>Delete {{this.username}}</button></a>
-         <a href="/users/{{this._id}}/edit"><button>Edit {{this.username}}</button></a>
-    </div>
-{{/each}}
+<h1>Login Now</h1>
+  <form action="/users/login?_method=PUT" method="POST">
+	<input type="text" name="username" placeholder="username" required>
+    <input type="submit" value="Log In" class="form-button">
+</form>
+<div class="beer-show-button">
+    <button><div><a href="/users/new">Sign Up</a></div></button>
+    <button><div><a href="/brewery">Back to Main Page</a></div></button>
+</div>

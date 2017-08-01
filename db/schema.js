@@ -7,10 +7,11 @@ mongoose.Promise = global.Promise;
 var BeerSchema = new Schema ({
   name: {type: String, required: true},
   description: String,
-  reviews: [],
+  reviews: String,
   rating: Number,
   photo: String,
-  locations: String
+  locations: String,
+  breweryId: mongoose.Schema.Types.ObjectId
 });
 var UserSchema = new Schema ({
   username: String,

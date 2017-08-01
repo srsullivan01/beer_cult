@@ -7,6 +7,9 @@ var Beer = require("../models/beer");
 
 /* GET home page. INDEX */
 router.get('/', function(request, response, next) {
+
+  const userId = request.params.userId;
+
   User.find({}).then((user) => {
     response.render(
         'user/index',
@@ -14,18 +17,31 @@ router.get('/', function(request, response, next) {
           user: user,
           username: this.username,
           //password: this.password,
-          created_at: this.Date,
-          updated_at: this.Date,
-          bio: this.bio,
-          photo: this.photo,
-          beers: this.beer,
-          fridge: this.fridge
         },
     ) .catch((error) => {
     console.log('Error retrieving user from database!');
     console.log(error);
     });
   });
+});
+
+//login route
+
+router.put('/login', (request, response) => {
+  console.log('I tried to login');
+  const userInfo = request.body.username;
+
+  User.findOne({"username": userInfo})
+    .then((user) => {
+      console.log(user)
+      var findUsername = user.username;
+        response.render(
+          'user/show',
+          {
+            user
+          }
+        )
+    })
 });
 
 //this is the create new form
@@ -51,15 +67,22 @@ router.post('/', (request, response) => {
 });
 
 // user show route
-router.get('/:userid', function(request, response, next) {
+router.get('/:userId', function(request, response, next) {
 
-    var userToSearchFor = request.params.id;
+    var userToSearchFor = request.params.userId;
+    const beerId = request.params.beerId;
 
     User.findById(userToSearchFor)
         .then((user) => {
+          var arrayOfBeers = user.beers;
+          console.log(user);
             response.render(
                 'user/show',
-                { user }
+                { 
+                  arrayOfBeers,
+                  user,
+                  beers: user.beers
+                }
             );
         })
         .catch((error) => {
@@ -89,11 +112,11 @@ router.put('/:userId', (request, response) => {
 });
 
 //DELETE
-router.get('/:id/delete', (request, response) => {
-  const userIdToDelete = request.params.id;
+router.get('/:userId/delete', (request, response) => {
+  const userIdToDelete = request.params.userId;
   User.findByIdAndRemove(userIdToDelete).then(() => {
     console.log(`You have been visited by the demon of delete, ${userIdToDelete} is gone`);
-    response.redirect('/user');
+    response.redirect('/users');
   });
 });
 

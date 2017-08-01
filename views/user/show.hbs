@@ -1,12 +1,15 @@
 <h1>{{user.username}}</h1>
-
-<img class="userpic" src="{{user.photo}}">
-<div>Bio: {{user.bio}} </div>
-<h2>My Reviews<h2>
-  <div>{{#each beers}}><ul>
-    <li></li>
-    {{/each beers}}
-  </div>
-
-<h2>My Fridge</h2>
-<div>{{user.fridge}}</h2>
+<div class="brewery-show">
+  <div>Bio: {{user.bio}} </div>
+  <div>{{user.photo}}</div>
+  {{#each user.beers}}
+  <div>My Beers: <a href="/brewery/{{this.breweryId}}/beer/{{this._id}}">{{this.name}}</a></div>
+  {{/each}}
+  <div>My Fridge: {{user.fridge}}</div>
+</div>
+<div class="beer-show-button">
+  <button><div><a href="/users/{{user._id}}/edit">Edit Profile</a></div></button>
+  <button><div><a href="/users/{{user._id}}/delete">Delete My Account</a></div></button>
+  <button><div><a href="/users/">Log Out</a></div></button>
+  <button><div><a href="/brewery/">Breweries</a></div></button>
+</div>

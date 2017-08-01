@@ -15,11 +15,12 @@ router.get('/', function(request, response, next) {
   Brewery.find({})
     .then((brewery) => {
       var arrayOfBeers = brewery.beers;
+      console.log(brewery);
         response.render(
         'brewery/index',
         {
           arrayOfBeers,
-          breweryId: breweryId,
+          breweryId,
           beerId,
           brewery: brewery,
           name: brewery.name,
@@ -27,13 +28,12 @@ router.get('/', function(request, response, next) {
           location: brewery.location,
           email: brewery.email,
           website: brewery.website
-        }
-      )
-    }).catch((error) => {
-      console.log('Error retrieving brewery from database!');
-      console.log(error);
-    });
-
+        },
+    ).catch((error) => {
+    console.log('Error retrieving brewery from database!');
+    console.log(error);
+  });
+  });
 });
 
 //this is the create new form

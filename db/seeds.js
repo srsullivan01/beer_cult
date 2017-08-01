@@ -21,11 +21,40 @@ Beer.remove({}, function(error){
 });
 
 //save the data
+var scoffLaw  = new Brewery({
+	name: "scofflaw brewering company",
+	beers: [],
+	location: "Atlanta",
+	email: "info@scofflawbeer.com",
+	website: "scofflawbeer.com"
+});
+
+var doubleJeopardy = new Beer({
+	name: "double Jeopardy",
+	description: "hazy with golden orange hoppy, bittersweet. YUM!",
+	reviews: "great beer",
+	rating: 5,
+	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
+	locations: "Atlanta, Chicago, LA",
+	breweryId: scoffLaw._id
+});
+scoffLaw.beers.push(doubleJeopardy);
+
+var hooligan = new Beer({
+	name: "hooligan",
+	description: "hazy with golden orange hoppy, bittersweet. YUM!",
+	reviews: "love the color",
+	rating: 5,
+	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
+	locations: "Atlanta, Chicago, LA",
+	breweryId: scoffLaw._id
+});
+scoffLaw.beers.push(hooligan);
 
 var dirtyMike = new User({
 	username: "dirtyMikester",
 	bio: "dirty mike is the name!",
-	photo: "https://s-media-cache-ak0.pinimg.com/736x/39/5e/83/395e8312d399c0ad1607c4b76a55778d--funny-fitness-workout-fitness.jpg",
+	photo: "http://i.imgur.com/EykXDof.jpg",
 	beers: [doubleJeopardy],
 	fridge: []
 });
@@ -38,32 +67,6 @@ var ct = new User({
 	fridge: []
 });
 
-var doubleJeopardy = new Beer({
-	name: "double Jeopardy",
-	description: "hazy with golden orange hoppy, bittersweet. YUM!",
-	reviews: [],
-	rating: 5,
-	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
-	locations: "Atlanta, Chicago, LA"
-});
-
-var hooligan = new Beer({
-	name: "hooligan",
-	description: "hazy with golden orange hoppy, bittersweet. YUM!",
-	reviews: [],
-	rating: 5,
-	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
-	locations: "Atlanta, Chicago, LA"
-});
-
-var scoffLaw  = new Brewery({
-	name: "scofflaw brewering company",
-	beers: [doubleJeopardy, hooligan],
-	location: "Atlanta",
-	email: "info@scofflawbeer.com",
-	website: "scofflawbeer.com"
-});
-
 dirtyMike.save(function(error){
 	if (error) console.log(error);
 	console.log('dirty mike created!');
@@ -73,6 +76,9 @@ ct.save(function(error){
 	if (error) console.log(error);
 	console.log('ct created!');
 });
+
+hooligan.brewery = scoffLaw;
+doubleJeopardy.brewery = scoffLaw;
 
 doubleJeopardy.save(function(error){
 	if (error) console.log(error);

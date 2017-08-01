@@ -5,7 +5,8 @@
 <form class="form-inline" action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST">
   <div class="form-group">
     <input type="text" value="{{beer.name}}" name="name">
-
-    <button class="btn waves-effect waves-light amber accent-3" type="submit" name="action">Submit</button>
-  </div>
+    <input type="text" value="{{beer.description}}" name="description" placeholder="description">
+    <input type="text" value="{{beer.reviews}}" name="reviews" placeholder="review this beer">
+    <input type="text" value="{{beer.rating}}" name="rating" placeholder="rate this beer from 1-5">
+    <input type="submit" value="Update Beer" class="form-button">
 </form>

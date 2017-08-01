@@ -1,33 +1,87 @@
-body {
-  display: flex;
+  body {
   padding: 50px;
   font-family: 'Cairo', sans-serif;
-
-};
-
+  padding-bottom: 50px;
+  background-image: url("http://static.wixstatic.com/media/797c90_ad106a0863dc49029c58cea2c9ccba30.jpg_srz_1036_1295_85_22_0.50_1.20_0.00_jpg_srz");
+}
+  body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+     color:rgb(225, 218, 218);
+    justify-content: center;
+ }
+ main {
+     flex: 1 0 auto;
+ }
+#page-footer {
+  background-color: rgba(68, 65, 57, .7);
+}
+#nav-wrapper {
+  background-color: rgba(68, 65, 57, .7);
+}
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  display: flex;
+  justify-content: center;
+}
+main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+.brewery-name {
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 a {
-  color: #5d4037 !default;
-  text-decoration: none !important;
-};
-
-img.resize {
-  max-width:100%;
-  max-height:auto;
-};
-
-.row.content {
-  height: 1500px};
-
-
-footer {
-  color: #F6F7BD;
-  padding: 15px;
-};
-
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
-  .row.content {height: auto;}
-};
+  color: rgb(225, 218, 218);
+}
+a:hover {
+  color: rgb(105, 22, 22);
+}
+#delete-button {
+  font-size: 12px;
+}
+.beer-list {
+  display: flex;
+  justify-content: center;
+}
+button {
+  background-color: rgba(68, 65, 57, .7);
+  margin: 20px;
+}
+.delete-edit-add {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+.new {
+  display: flex;
+  justify-content: space-around;
+}
+.brewery-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+}
+.beer-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+}
+.beer-show-button {
+  display: flex;
+  justify-content: center
+}
+.beer-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-button {
+  background-color: rgba(68, 65, 57, .7);
+}
