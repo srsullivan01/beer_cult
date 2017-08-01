@@ -31,18 +31,18 @@ As a user I would like to:
 - Link with Google maps to help users navigate to breweries
 - Allow users to scan barcodes and populate beer information
 
-<b>Entity Relationship Diagrams:</b>
+<b>Entity Relationship Diagrams:</b><br>
 <a href="https://ibb.co/gw7Gek"><img src="https://preview.ibb.co/m5mnkQ/erb.jpg" alt="erb" border="0"></a>
 <a href="https://ibb.co/itids5"><img src="https://preview.ibb.co/hiGys5/schema1.jpg" alt="schema1" border="0"></a>
 
 <b>Folders:</b><br>
-	* Public: images, stylesheets -> styles.css,<br>
-	* Models: beer.js, user.js, brewery.js<br>
-	* Routes: beer.js, user.js, brewery.js<br>
-	* Views:<br>
-    *  beer, includes: edit, index, new and show<br>
-    * User, includes: edit, index, new, and show<br>
-    * Brewery, includes: edit, index, new, and show
+	- Public: images, stylesheets -> styles.css,<br>
+	- Models: beer.js, user.js, brewery.js<br>
+	- Routes: beer.js, user.js, brewery.js<br>
+	- Views:<br>
+    	- beer, includes: edit, index, new and show<br>
+    	- User, includes: edit, index, new, and show<br>
+    	- Brewery, includes: edit, index, new, and show
 
 <b>Resources Used:</b>
 * <a href="http://materializecss.com/"> Materialize </a>
