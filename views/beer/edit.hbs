@@ -1,12 +1,13 @@
-<div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-<form class="form-inline" action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST">
+<h1>Edit Beer</h1>
+
+<form action="/brewery/{{breweryId}}/beer/{{beerId}}?_method=PUT" method="POST"> 
   <div class="form-group">
     <input type="text" value="{{beer.name}}" name="name">
     <input type="text" value="{{beer.description}}" name="description" placeholder="description">
     <input type="text" value="{{beer.reviews}}" name="reviews" placeholder="review this beer">
     <input type="text" value="{{beer.rating}}" name="rating" placeholder="rate this beer from 1-5">
     <input type="submit" value="Update Beer" class="form-button">
+  </div>
 </form>
+
+<div><a href="/brewery">Back to Main Page</a></div>
