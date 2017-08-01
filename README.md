@@ -1,4 +1,4 @@
-:beers: #Beer Cult :beers:
+:beers: <h1>Beer Cult</h1> :beers:
 Heroku link: https://beer-cult.herokuapp.com/
 
 Wireframes:
@@ -12,33 +12,33 @@ Wireframes:
 
 Trello: https://trello.com/b/m0l7v3v6/beer-app-from-hell
 
-##App Overview:
+<b>App Overview:</b>
 Beer Cult is an app that maintains a database of craft beers, breweries, and user-submitted beer reviews.
 
-##Unsolved Features:
+<b>Unsolved Features:</b>
 - storing beers in user's wishlist
 
-##User Stories:
+<b>User Stories:</b>
 As a user I would like to:
   - View a list of local breweries and their beers
   - View a list of beers in the database
   - Add reviews to beers
   - See other users reviews of different beers
 
-##Stretch Goals:
+<b>Stretch Goals:</b>
 - Allow users to submit new types of beer
 - Build a login screen
 - Link with Google maps to help users navigate to breweries
 - Allow users to scan barcodes and populate beer information
 
-##Entity Relationship Diagrams:
+<b>Entity Relationship Diagrams:</b>
 <a href="https://ibb.co/gw7Gek"><img src="https://preview.ibb.co/m5mnkQ/erb.jpg" alt="erb" border="0"></a>
 <a href="https://ibb.co/itids5"><img src="https://preview.ibb.co/hiGys5/schema1.jpg" alt="schema1" border="0"></a>
 
-##Folders:
-	* Public: images, stylesheets -> styles.css,
-	* Models: beer.js, user.js, brewery.js
-	* Routes: beer.js, user.js, brewery.js
+<b>Folders:</b>
+	* Public: images, stylesheets -> styles.css,<br>
+	* Models: beer.js, user.js, brewery.js<br>
+	* Routes: beer.js, user.js, brewery.js<br>
 	* Views:
     *  beer, includes: edit, index, new and show
     * User, includes: edit, index, new, and show
