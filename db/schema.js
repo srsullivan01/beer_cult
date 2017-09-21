@@ -15,7 +15,7 @@ var BeerSchema = new Schema ({
 });
 var UserSchema = new Schema ({
   username: String,
-  //password: String,
+  password: String,
   created_at: Date,
   updated_at: Date,
   bio: String,
