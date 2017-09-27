@@ -1,3 +1,4 @@
+// require('dotenv').config();
 var mongoose = require ('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -29,6 +30,14 @@ var scoffLaw  = new Brewery({
 	website: "scofflawbeer.com"
 });
 
+var creature  = new Brewery({
+	name: "Creature Comforts",
+	beers: [],
+	location: "Atlanta",
+	email: "info@scofflawbeer.com",
+	website: "scofflawbeer.com"
+});
+
 var doubleJeopardy = new Beer({
 	name: "double Jeopardy",
 	description: "hazy with golden orange hoppy, bittersweet. YUM!",
@@ -39,6 +48,17 @@ var doubleJeopardy = new Beer({
 	breweryId: scoffLaw._id
 });
 scoffLaw.beers.push(doubleJeopardy);
+
+var tropicalia = new Beer({
+	name: "tropicalia",
+	description: "hazy with golden orange hoppy, bittersweet. YUM!",
+	reviews: "great beer",
+	rating: 5,
+	photo: "https://scofflawbeer.com/wp-content/uploads/2016/10/our-beers-double-jeopardy-1.jpg",
+	locations: "Atlanta, Chicago, LA",
+	breweryId: creature._id
+});
+creature.beers.push(tropicalia);
 
 var hooligan = new Beer({
 	name: "hooligan",
@@ -78,11 +98,17 @@ ct.save(function(error){
 });
 
 hooligan.brewery = scoffLaw;
+tropicalia.brewery = creature;
 doubleJeopardy.brewery = scoffLaw;
 
 doubleJeopardy.save(function(error){
 	if (error) console.log(error);
 	console.log('double Jeopardy created!');
+});
+
+tropicalia.save(function(error){
+	if (error) console.log(error);
+	console.log('tropicalia created!');
 });
 
 hooligan.save(function(error){
@@ -95,6 +121,10 @@ scoffLaw.save(function(error){
 	console.log('scofflaw created!');
 });
 
+creature.save(function(error){
+	if (error) console.log(error);
+	console.log('creature created!');
+});
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/beer_cult');
 
