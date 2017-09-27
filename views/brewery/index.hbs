@@ -11,9 +11,13 @@
         </div>
      {{/each}}
      <div class="delete-edit-add">
-        <div><a href="/brewery/{{this._id}}/delete">Delete {{this.name}}</a></div>
+        <div><a href="/brewery/{{this._id}}/delete">Delete</a></div>
         &nbsp;
-        <div><a href="/brewery/{{this._id}}/edit">Edit {{this.name}}</a></div>
+        &nbsp;
+        &nbsp;
+        <div><a href="/brewery/{{this._id}}/edit">Edit</a></div>
+        &nbsp;
+        &nbsp;
         &nbsp;
         <div><a href="/brewery/{{this._id}}/beer/{{beerId}}/new">Add New Beer</a></div>
     </div>
